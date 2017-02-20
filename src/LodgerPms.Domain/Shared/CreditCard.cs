@@ -3,7 +3,7 @@ using static LodgerPms.Domain.Shared.Enums;
 
 namespace LodgerPms.Domain.Shared
 {
-    public class CreditCard
+    public class CreditCard : Identity
     {
         public static CreditCard Create(CreditCardType type, string number, string owner, ExpiryDate expiration)
         {

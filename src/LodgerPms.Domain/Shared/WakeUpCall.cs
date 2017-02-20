@@ -10,7 +10,7 @@ is possible to use this feature to log manual wake up requests for reporting.
      */
 namespace LodgerPms.Domain.Shared
 {
-    public class WakeUpCall : ValueObject<WakeUpCall>
+    public class WakeUpCall : Identity
     {
         public WakeUpCall(string room ,  DateTime begingDate, DateTime endDate, string fromTime, string toTime)
         {

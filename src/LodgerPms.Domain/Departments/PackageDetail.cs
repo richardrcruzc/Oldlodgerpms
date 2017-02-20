@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LodgerPms.Domain.Departments
 {
-    public class PackageDetail
+    public class PackageDetail : Identity
     {
         public  PackageDetail()
         {

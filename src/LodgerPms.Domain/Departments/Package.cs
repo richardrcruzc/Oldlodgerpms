@@ -42,7 +42,7 @@ excess amount posts on the guest folio using this transaction code. */
         public bool TaxAverage { get; private set; }/*deducts the tax amount from the amount of the package
 element. */
 
-        public IEnumerable<string> Alternate { get; private set; }/* includes any transaction codes allowed on this package. For
+        public string Alternate { get; private set; }/* includes any transaction codes allowed on this package. For
 example, although we expect a guest to have breakfast in the café, they
 may order room service instead and still have that amount allowed on their
 package. You may also need to include taxes, gratuities, and beverages for
@@ -62,7 +62,7 @@ reports.*/
         public RateAttribute Attributes { get; private set; }
         public bool SellSeparate { get; private set; }
         public bool PostNextDay { get; private set; }
-        public IEnumerable<string> ItemInventory { get; private set; }
+        public string ItemInventory { get; private set; }
 
 
         public PostinFrecuency PostingFrecuency { get; private set; }

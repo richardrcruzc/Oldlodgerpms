@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LodgerPms.Domain.Shared
 {
-    public class FullName
+    public  class FullName 
     {
         public FullName(string firstName, string lastName)
         {

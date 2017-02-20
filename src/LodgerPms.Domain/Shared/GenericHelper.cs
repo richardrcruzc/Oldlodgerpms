@@ -2,7 +2,7 @@
 
 namespace LodgerPms.Domain.Shared
 {
-    public class GenericHelper
+    public class GenericHelper : Identity
     {
         public static GenericHelper CreateNew(GenericEntityType entityType, string description)
         {

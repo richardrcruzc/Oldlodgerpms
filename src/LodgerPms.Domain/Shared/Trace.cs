@@ -9,7 +9,7 @@ Traces assist the hotel in taking actions on guests special requests.
      */
 namespace LodgerPms.Domain.Shared
 {
-    public class Trace : ValueObject<Trace>
+    public class Trace : Identity
     {
         public Trace(DateTime date, string time, string department, string name)
         {

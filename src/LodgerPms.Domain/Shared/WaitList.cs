@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 namespace LodgerPms.Domain.Shared
 {
 
-        public class WaitList : ValueObject<WaitList>
-        {
+        public class WaitList : Identity
+    {
         public WaitList(WaitListReason reason , WaitListPriority priority, string description,
             DateTime dateCreated, string createBy)
         {

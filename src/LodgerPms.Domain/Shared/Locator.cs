@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace LodgerPms.Domain.Shared
 {
 
-    public class Locator :ValueObject<Locator>
+    public class Locator : Identity
     {
         public  Locator(DateTime begingDate ,DateTime endDate ,string fromTime , string toTime)
         {

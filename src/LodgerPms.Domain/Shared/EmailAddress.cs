@@ -2,7 +2,7 @@
 
 namespace LodgerPms.Domain.Shared
 {
-    public class EmailAddress //: AgregateRoot.EmailAddressState
+    public class EmailAddress : AgregateRoot.EmailAddressState
     {
 
         public static EmailAddress New(EmailType type, string address, bool mailingList)

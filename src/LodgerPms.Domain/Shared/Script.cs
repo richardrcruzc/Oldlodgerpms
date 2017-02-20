@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace LodgerPms.Domain.Shared
 {
 
-    public class Script : ValueObject<Script>
+    public class Script : Identity
     {
         public Script(bool active, ScriptType scriptType, BelongType belongTo, string description)
         {

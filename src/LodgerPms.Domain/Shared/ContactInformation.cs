@@ -3,7 +3,7 @@ using static LodgerPms.Domain.Shared.Enums;
 
 namespace LodgerPms.Domain.Shared
 {
-    public class ContactInformation //: AgregateRoot.ContactInformationState
+    public class ContactInformation : AgregateRoot.ContactInformationState
     {
         public ContactInformation(
                 ContactType contactType,

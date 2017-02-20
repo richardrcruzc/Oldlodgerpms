@@ -2,7 +2,7 @@
 
 namespace LodgerPms.Domain.Shared
 {
-    public sealed class ExpiryDate
+    public sealed class ExpiryDate : Identity
     {
         public static ExpiryDate Unknown = new ExpiryDate(0, 0);
         public ExpiryDate(int month, int year)

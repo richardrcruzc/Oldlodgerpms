@@ -2,6 +2,7 @@
 using LodgerPms.Domain.Bookings;
 using LodgerPms.Domain.Rooms;
 using LodgerPms.Domain.Shared;
+using LodgerPms.Domain.Agents;
 
 namespace LodgerPms.Persistence.FaceCover
 {
@@ -24,6 +25,13 @@ namespace LodgerPms.Persistence.FaceCover
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<GuestInfo> ()
+             .ToTable("GuestInfo")
+             .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Rate>()
+             .ToTable("Rate")
+             .HasKey(x => x.Id);
 
             modelBuilder.Entity<BedType>()
                .ToTable("BedType")
@@ -48,18 +56,15 @@ namespace LodgerPms.Persistence.FaceCover
 
             modelBuilder.Entity<RoomInfo>()
                 .HasOne(rt => rt.RoomType)
-                .WithMany(r => r.RoomInfoList)
-                .HasForeignKey(f => f.RoomTypeId);
+                .WithMany(r => r.RoomInfoList);
 
             modelBuilder.Entity<RoomInfo>()
                 .HasOne(rt => rt.BedType)
-                .WithMany(r => r.RoomInfoList)
-                .HasForeignKey(f => f.BedTypeId);
+                .WithMany(r => r.RoomInfoList);
 
             modelBuilder.Entity<RoomInfo>()
                 .HasOne(rt => rt.RoomLocation)
-                .WithMany(r => r.RoomInfoList)
-                .HasForeignKey(f => f.RoomLocationId);
+                .WithMany(r => r.RoomInfoList);
 
 
             modelBuilder.Entity<RoomLocation>()

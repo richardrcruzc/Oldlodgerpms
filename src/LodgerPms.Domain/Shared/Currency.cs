@@ -2,7 +2,7 @@
 
 namespace LodgerPms.Domain.Shared
 {
-    public class Currency
+    public class Currency : Identity
     {
         public static Currency Default = new UsdCurrency();
 

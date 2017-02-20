@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LodgerPms.Domain.Bookings
 {
-    public class GuestInfo
+    public class GuestInfo : Identity
     {
         public static GuestInfo CreateNew( string company, string position, decimal creditLimit,
             Person person, CreditCard payment)

@@ -3,7 +3,7 @@
 
 namespace LodgerPms.Domain.Shared
 {
-    public class Person
+    public class Person : Identity
     {
        public static Person Create(Title title, PersonType personType, FullName fullName,  DateTime dob, Gender gender,
             string nationality, IdentifcationType identifcationType, string identifcationValue)

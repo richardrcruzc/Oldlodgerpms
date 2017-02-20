@@ -61,7 +61,7 @@ namespace LodgerPms.Domain.Agents
         public string ExchangeType { get; private set; }
 
 
-        public IEnumerable<Components> Components { get; private set; }
+        public Components Components { get; private set; }
 
 
         public void ChangeRateState(RateState state)

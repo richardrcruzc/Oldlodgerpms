@@ -2,7 +2,7 @@
 
 namespace LodgerPms.Domain.Shared
 {
-    public sealed class Money
+    public sealed class Money : Identity
     {
         public static Money Zero = new Money(Currency.Default, 0);
         public Money(Currency currency, decimal amount)

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LodgerPms.Domain.Shared
 {
-    public class Telephone : ValueObject<Telephone>
+    public class Telephone : Identity
     {
         public Telephone(string number)
         {
