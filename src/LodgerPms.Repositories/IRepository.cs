@@ -1,11 +1,13 @@
-﻿using System;
+﻿using lodgerpms.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace LodgerPms.Domain.Repositories
 {
-    public interface IRepository<TAggregate>
+    //public interface IRepository<T>
+        public interface IRepository<T> where T : IAggregateRoot
     {
 
         /// <summary>
@@ -14,21 +16,21 @@ namespace LodgerPms.Domain.Repositories
         /// you build one query through the layers (not tiers!)
         /// </summary>
         /// <returns>IQueryable (query, not data)</returns>
-        Task<IList<TAggregate>> FindAll();
+        Task<IList<T>> FindAll();
 
         /// <summary>
         /// Add an aggregate graph to the store.
         /// </summary>
         /// <param name="aggregate">Aggregate root object</param>
         /// <returns>True if successful; False otherwise</returns>
-        Task<bool> Add(TAggregate aggregate);
+        Task<bool> Add(T aggregate);
 
         /// <summary>
         /// Save changes to an aggregate graph already in the store.
         /// </summary>
         /// <param name="aggregate">Aggregate root object</param>
         /// <returns>True if successful; False otherwise</returns>
-        Task<bool> Save(TAggregate aggregate);
+        Task<bool> Save(T aggregate);
 
         /// <summary>
         /// Delete the entire graph rooted in the specified aggregate object.
@@ -36,7 +38,7 @@ namespace LodgerPms.Domain.Repositories
         /// </summary>
         /// <param name="aggregate">Aggregate root object</param>
         /// <returns>True if successful; False otherwise</returns>
-        Task<bool> Delete(TAggregate aggregate);
+        Task<bool> Delete(T aggregate);
 
     }
 }

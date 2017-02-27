@@ -5,8 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using LodgerPms.Persistence.FaceCover;
 using LodgerPms.Domain.Agents;
-using LodgerPms.Domain.Departments;
-using LodgerPms.Domain.Shared;
+using LodgerPms.Domain.Departments; 
 
 namespace LodgerPms.Persistence.Migrations
 {

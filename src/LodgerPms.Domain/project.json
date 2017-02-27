@@ -2,6 +2,7 @@
   "version": "1.0.0-*",
 
   "dependencies": {
+    "lodgerpms.Domain.Common": "1.0.0-*",
     "NETStandard.Library": "1.6.1",
     "System.Reflection.TypeExtensions": "4.3.0"
   },

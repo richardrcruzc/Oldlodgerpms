@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static LodgerPms.Domain.Shared.Enums;
+using static lodgerpms.Domain.Common.Enums;
 
 namespace LodgerPms.Domain.Rooms
 {

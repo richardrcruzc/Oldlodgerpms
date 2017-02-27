@@ -1,4 +1,5 @@
-﻿using LodgerPms.Domain.Departments;
+﻿using lodgerpms.Domain.Common;
+using LodgerPms.Domain.Departments;
 using LodgerPms.Domain.Rooms;
 using System;
 using System.Collections.Generic;

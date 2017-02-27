@@ -1,6 +1,6 @@
 ﻿using LodgerPms.Domain.Agents;
 using LodgerPms.Domain.Rooms;
-using LodgerPms.Domain.Shared;
+using lodgerpms.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using LodgerPms.Domain.Bookings;
-using LodgerPms.Domain.Rooms;
-using LodgerPms.Domain.Shared;
+using LodgerPms.Domain.Rooms; 
 using LodgerPms.Domain.Agents;
 
 namespace LodgerPms.Persistence.FaceCover
