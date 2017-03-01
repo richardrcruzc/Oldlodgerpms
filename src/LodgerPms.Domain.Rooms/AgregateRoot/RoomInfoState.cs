@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace LodgerPms.Domain.Rooms.AgregateRoot
 {
-     public class RoomInfoState : Identity, IAggregateRoot
+     public abstract class RoomInfoState : Identity, IAggregateRoot
     {
-        public string RoomTypeId { get; set; }
-        public string BedTypeId { get; set; }
-        public string RoomLocationId { get; set; }
+        public string RoomTypeId { get; protected set; }
+        public string BedTypeId { get; protected set; }
+        public string RoomLocationId { get; protected set; }
     }
 }

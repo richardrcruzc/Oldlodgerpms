@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LodgerPms.Domain.Rooms.AgregateRoot
 {
-    public class PropertyInfoState: Identity, IAggregateRoot
+    public abstract class PropertyInfoState: Identity, IAggregateRoot
     {
-        public string LocationId { get; set; }
-        public string DefaultBillingAddressId { get; set; }
-        public string DefaultDeliveryAddressId { get; set; }
+        public string LocationId { get; protected set; }
+        public string DefaultBillingAddressId { get; protected set; }
+        public string DefaultDeliveryAddressId { get; protected set; }
          
     }
 }

@@ -2,9 +2,9 @@
 
 namespace LodgerPms.Domain.Rooms.AgregateRoot
 {
-    public class RoomStatusState:Identity, IAggregateRoot
+    public abstract class RoomStatusState:Identity, IAggregateRoot
     {
-        public string BookingId { get; set; }
-        public string RoomInfoId { get; set; }
+        public string BookingId { get; protected set; }
+        public string RoomInfoId { get; protected set; }
     }
 }

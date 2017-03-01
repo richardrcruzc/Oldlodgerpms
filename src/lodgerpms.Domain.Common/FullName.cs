@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace lodgerpms.Domain.Common
 {
     //no ID because it's a value object
     //EF will recognized this as a complex type
     //some methods borrowed from Vaughn Vernon IDDD.NET sample
-    public class FullName : Identity
+   // [ComplexType]
+    public class FullName :  Identity, IAggregateRoot
     {
         public FullName(string firstName, string lastName)
         {
@@ -25,6 +24,7 @@ namespace lodgerpms.Domain.Common
         {
         }
 
+        public string Id { get; private set; }
 
         public string FirstName { get; private set; }
 

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LodgerPms.Domain.Rooms.AgregateRoot
 {
-    public class RoomTypeState : Identity, IAggregateRoot
+    public abstract class RoomTypeState : Identity, IAggregateRoot
     {
-        public string RoomGroupId { get; set; }
+        public string RoomGroupId { get; protected set; }
+       
     }
 }
