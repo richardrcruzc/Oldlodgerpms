@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using lodgerpms.Domain.Common.Models;
 
 namespace LodgerPms.Domain.Profiles
 {

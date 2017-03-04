@@ -6,7 +6,7 @@ namespace  LodgerPms.Domain.CommonData
   //no ID because it's a value object
   //EF will recognized this as a complex type
   //some methods borrowed from Vaughn Vernon IDDD.NET sample
-  public class FullName:ValueObject<FullName>
+  public class FullName //:ValueObject<FullName>
   {
     public FullName(string firstName, string lastName)
     {

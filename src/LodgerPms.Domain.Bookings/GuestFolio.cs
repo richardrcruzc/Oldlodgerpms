@@ -4,11 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LodgerPms.Domain.Departments.Models;
 /*
- Folio with estimated charges for the
+Folio with estimated charges for the
 entire length of the guest stay.
 All guest charges post to one or more folios once the guest is in-house.
-     */
+*/
 namespace LodgerPms.Domain.Bookings
 {
     public class GuestFolio : Identity, IAggregateRoot
