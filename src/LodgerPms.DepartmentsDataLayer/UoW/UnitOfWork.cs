@@ -1,6 +1,7 @@
-﻿using lodgerpms.Domain.Common.Commands;
+﻿
 using LodgerPms.DepartmentsDataLayer.Context;
-using LodgerPms.Domain.Departments.Interfaces;
+using LodgerPms.Domain.Core.Commands;
+using LodgerPms.Domain.Interface.Interfaces;
 
 namespace LodgerPms.DepartmentsDataLayer.UoW
 {

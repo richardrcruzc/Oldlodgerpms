@@ -5,12 +5,12 @@
     "LodgerPms.Domain.Core": "1.0.0-*",
     "LodgerPms.Infra.CrossCutting.Bus": "1.0.0-*",
     "LodgerPms.Infra.CrossCutting.Identity": "1.0.0-*",
-    "Microsoft.AspNetCore.Authorization": "1.1.0",
-    "Microsoft.AspNetCore.Http": "1.1.0",
-    "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
-    "Microsoft.AspNetCore.Http.Features": "1.1.0",
+    "Microsoft.AspNetCore.Authorization": "1.1.1",
+    "Microsoft.AspNetCore.Http": "1.1.1",
+    "Microsoft.AspNetCore.Http.Abstractions": "1.1.1",
+    "Microsoft.AspNetCore.Http.Features": "1.1.1",
     "Microsoft.Extensions.DependencyInjection.Abstractions": "1.1.0",
-    "NETStandard.Library": "1.6.0"
+    "NETStandard.Library": "1.6.1"
   },
 
   "frameworks": {

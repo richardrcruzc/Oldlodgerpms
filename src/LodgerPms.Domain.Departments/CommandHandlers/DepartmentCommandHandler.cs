@@ -6,6 +6,7 @@ using LodgerPms.Domain.Departments.Interfaces;
 using LodgerPms.Domain.Departments.Commands;
 using LodgerPms.Domain.Departments.Models;
 using LodgerPms.Domain.Departments.Events;
+using LodgerPms.Domain.Interface.Interfaces;
 
 namespace LodgerPms.Domain.Departments.CommandHandlers
 {
@@ -72,7 +73,7 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 }
             }
 
-            _departmentRepository.Save(department);
+            _departmentRepository.Update(department);
 
             if (Commit())
             {
@@ -88,8 +89,7 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 return;
             }
             var department = _departmentRepository.GetById(message.Id);
-            //var dpt = await _departmentRepository.FindAll();
-            //await _departmentRepository.Delete(dpt);
+          //  _departmentRepository.Delete(department);
 
             if (Commit())
             {

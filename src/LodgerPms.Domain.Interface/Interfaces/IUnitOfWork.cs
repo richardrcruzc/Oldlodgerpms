@@ -1,8 +1,8 @@
-﻿using lodgerpms.Domain.Common.Commands;
+﻿using LodgerPms.Domain.Core.Commands;
 using System;
 
 
-namespace LodgerPms.Domain.Departments.Interfaces
+namespace LodgerPms.Domain.Interface.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {

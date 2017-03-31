@@ -1,12 +1,13 @@
 ﻿
 using LodgerPms.Domain.Departments.Models;
+using LodgerPms.Domain.Interface.Interfaces;
 using System.Threading.Tasks;
 
 namespace LodgerPms.Domain.Departments.Interfaces
 {
-
     public interface IDepartmentRepository : IRepository<Department>
     {
-        Task<Department> GetByDescription(string description);
+        Department GetByDescription(string description);
+
     }
 }

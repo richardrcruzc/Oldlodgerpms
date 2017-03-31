@@ -32,8 +32,8 @@ namespace LodgerPms.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddDbContext<EFDomainDbContext>(options =>
-       options.UseSqlServer(Configuration.GetConnectionString("LodgerPmsDatabase")));
+       //     services.AddDbContext<EFDomainDbContext>(options =>
+       //options.UseSqlServer(Configuration.GetConnectionString("LodgerPmsDatabase")));
 
             services.AddDbContext<RoomsContext>(options =>
        options.UseSqlServer(Configuration.GetConnectionString("LodgerPmsDatabase")));
@@ -49,7 +49,7 @@ namespace LodgerPms.Api
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,
-            EFDomainDbContext context, RoomsContext roomCntxt)
+            RoomsContext roomCntxt)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();

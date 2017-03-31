@@ -1,10 +1,5 @@
 ﻿using LodgerPms.DepartmentsDataLayer.Context;
-using LodgerPms.Domain.Departments;
-using LodgerPms.Domain.Departments.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LodgerPms.DepartmentsDataLayer
 {
