@@ -1,6 +1,6 @@
 ﻿using LodgerPms.Domain.Core.Events;
-using LodgerPms.Domain.Interface.Interfaces;
 using LodgerPms.EventStoreSqlDataLayer.Repository.EventSourcing;
+using LodgerPms.Infra.CrossCutting.Identity.Inteface;
 using Newtonsoft.Json;
 
 

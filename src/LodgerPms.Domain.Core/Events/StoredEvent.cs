@@ -6,7 +6,7 @@ namespace LodgerPms.Domain.Core.Events
     {
         public StoredEvent(Event theEvent, string data, string user)
         {
-            Id = Guid.NewGuid();
+            Id = Guid.NewGuid().ToString();
             AggregateId = theEvent.AggregateId;
             MessageType = theEvent.MessageType;
             Data = data;
@@ -16,7 +16,7 @@ namespace LodgerPms.Domain.Core.Events
         // EF Constructor
         protected StoredEvent() { }
 
-        public Guid Id { get; private set; }
+        public string Id { get; private set; }
 
         public string Data { get; private set; }
 

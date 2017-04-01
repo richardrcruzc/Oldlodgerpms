@@ -6,9 +6,9 @@ namespace LodgerPms.Domain.Departments.Commands
 {
     public class UpdateDepartmentCommand : DepartmentCommand
     {
-        public UpdateDepartmentCommand(DepartmentGroup departmentGroup, DepartmentType departmentType, string description, bool applyTax, decimal amount, decimal percentage)
+        public UpdateDepartmentCommand(string id, DepartmentGroup departmentGroup, DepartmentType departmentType, string description, bool applyTax, decimal amount, decimal percentage)
         {
-            // Id = id;
+            Id = id;
             DepartmentGroup = departmentGroup;
             DepartmentType = DepartmentType;
             ApplyTax = applyTax;

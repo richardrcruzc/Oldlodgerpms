@@ -72,6 +72,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.EventStoreSqlData
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Domain.Interface", "src\LodgerPms.Domain.Interface\LodgerPms.Domain.Interface.xproj", "{428940BD-2355-44B5-8052-30388C36F914}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Application", "src\LodgerPms.Application\LodgerPms.Application.xproj", "{C8860A6E-8D00-4BFA-B9C8-887B4DD96496}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.UI.Site", "src\LodgerPms.UI.Site\LodgerPms.UI.Site.xproj", "{924A1600-1451-4A74-A6F0-BCB4F02E8DBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -162,6 +166,14 @@ Global
 		{428940BD-2355-44B5-8052-30388C36F914}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{428940BD-2355-44B5-8052-30388C36F914}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{428940BD-2355-44B5-8052-30388C36F914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8860A6E-8D00-4BFA-B9C8-887B4DD96496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8860A6E-8D00-4BFA-B9C8-887B4DD96496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8860A6E-8D00-4BFA-B9C8-887B4DD96496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8860A6E-8D00-4BFA-B9C8-887B4DD96496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{924A1600-1451-4A74-A6F0-BCB4F02E8DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924A1600-1451-4A74-A6F0-BCB4F02E8DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924A1600-1451-4A74-A6F0-BCB4F02E8DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924A1600-1451-4A74-A6F0-BCB4F02E8DBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -198,5 +210,7 @@ Global
 		{3881707C-8E94-43CD-A7A3-B99A81CC1DAB} = {9E65E7F2-FF22-4582-A9F4-04A0274D8BDB}
 		{EA54E7E5-6548-48A4-9A9A-2FDA59AE0F5D} = {49E4ED9E-6A2F-4C09-91A4-B00DCF240DE3}
 		{428940BD-2355-44B5-8052-30388C36F914} = {FBC858AE-E664-42C2-AC82-E1B3DAAE5193}
+		{C8860A6E-8D00-4BFA-B9C8-887B4DD96496} = {E99BD000-7039-49EE-A05B-EEE3EF5BDA92}
+		{924A1600-1451-4A74-A6F0-BCB4F02E8DBA} = {E6B732D1-2821-4DD2-824F-16D9D2217A3D}
 	EndGlobalSection
 EndGlobal

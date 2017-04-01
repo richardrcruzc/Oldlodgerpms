@@ -1,9 +1,10 @@
-﻿{
+{
   "version": "1.0.0-*",
 
   "dependencies": {
     "LodgerPms.Domain.Core": "1.0.0-*",
     "LodgerPms.Domain.Departments": "1.0.0-*",
+    "LodgerPms.Infra.CrossCutting.Identity": "1.0.0-*",
     "Microsoft.EntityFrameworkCore": "1.1.1",
     "Microsoft.EntityFrameworkCore.Design": "1.1.1",
     "Microsoft.EntityFrameworkCore.InMemory": "1.1.1",

@@ -16,9 +16,9 @@ namespace LodgerPms.EventStoreSqlDataLayer.Repository.EventSourcing
             _context = context;
         }
 
-        public IList<StoredEvent> All(Guid aggregateId)
+        public IList<StoredEvent> All(string aggregateId)
         {
-            return (from e in _context.StoredEvent where e.AggregateId == aggregateId select e).ToList();
+            return (from e in _context.StoredEvent where e.Id  == aggregateId select e).ToList();
         }
 
         public void Store(StoredEvent theEvent)
@@ -31,5 +31,7 @@ namespace LodgerPms.EventStoreSqlDataLayer.Repository.EventSourcing
         {
             _context.Dispose();
         }
+
+
     }
 }

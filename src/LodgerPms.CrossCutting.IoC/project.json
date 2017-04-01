@@ -2,7 +2,11 @@
   "version": "1.0.0-*",
 
   "dependencies": {
+    "AutoMapper": "6.0.2",
+    "LodgerPms.Application": "1.0.0-*",
+    "LodgerPms.DepartmentsDataLayer": "1.0.0-*",
     "LodgerPms.Domain.Core": "1.0.0-*",
+    "LodgerPms.Domain.Departments": "1.0.0-*",
     "LodgerPms.Infra.CrossCutting.Bus": "1.0.0-*",
     "LodgerPms.Infra.CrossCutting.Identity": "1.0.0-*",
     "Microsoft.AspNetCore.Authorization": "1.1.1",
