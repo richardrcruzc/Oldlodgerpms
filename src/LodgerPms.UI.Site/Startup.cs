@@ -43,6 +43,8 @@ namespace LodgerPms.UI.Site
             services.AddDbContext<DepartmentsContext>(options =>
                   options.UseSqlServer(Configuration.GetConnectionString("LodgerPmsDatabase")));
 
+            var test = Configuration.GetConnectionString("LodgerPmsDatabase");
+
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
                     options.Cookies.ApplicationCookie.AccessDeniedPath = "/home/access-denied")
                 .AddEntityFrameworkStores<DepartmentsContext>()

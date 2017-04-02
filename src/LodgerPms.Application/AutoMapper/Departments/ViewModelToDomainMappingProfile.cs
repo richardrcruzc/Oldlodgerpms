@@ -1,7 +1,7 @@
 ﻿
 
 using AutoMapper;
-using LodgerPms.Application.ViewModels.Deparments;
+using LodgerPms.Application.ViewModels.Deparments.Deparments;
 using LodgerPms.Domain.Departments.Commands;
 
 namespace LodgerPms.Application.AutoMapper.Departments

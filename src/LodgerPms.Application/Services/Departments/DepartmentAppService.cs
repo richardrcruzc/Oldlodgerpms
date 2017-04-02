@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using LodgerPms.Application.EventSourcedNormalizers.Departments;
 using LodgerPms.Application.Interfaces.Departments;
-using LodgerPms.Application.ViewModels.Deparments;
+using LodgerPms.Application.ViewModels.Deparments.Deparments;
 using LodgerPms.Domain.Core.Bus;
 using LodgerPms.Domain.Departments.Commands;
 using LodgerPms.Domain.Departments.Interfaces;

@@ -1,5 +1,5 @@
 ﻿using LodgerPms.Application.EventSourcedNormalizers.Departments;
-using LodgerPms.Application.ViewModels.Deparments;
+using LodgerPms.Application.ViewModels.Deparments.Deparments;
 using System;
 using System.Collections.Generic;
 

@@ -1,11 +1,11 @@
 ﻿using System;
 using LodgerPms.Application.Interfaces;
-using LodgerPms.Application.ViewModels;
+using LodgerPms.Application.ViewModels.Deparments;
 using LodgerPms.Domain.Core.Notifications;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using LodgerPms.Application.Interfaces.Departments;
-using LodgerPms.Application.ViewModels.Deparments;
+using LodgerPms.Application.ViewModels.Deparments.Deparments;
 
 namespace LodgerPms.UI.Site.Controllers
 {

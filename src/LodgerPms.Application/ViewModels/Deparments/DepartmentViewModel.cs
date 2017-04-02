@@ -4,7 +4,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace LodgerPms.Application.ViewModels.Deparments
+namespace LodgerPms.Application.ViewModels.Deparments.Deparments
 {
     public class DepartmentViewModel
     {
