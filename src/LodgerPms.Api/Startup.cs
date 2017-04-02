@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using LodgerPms.Persistence.FaceCover;
 using Microsoft.EntityFrameworkCore;
 using LodgerPms.RoomsDataLayer;
 using LodgerPms.Infra.CrossCutting.IoC;

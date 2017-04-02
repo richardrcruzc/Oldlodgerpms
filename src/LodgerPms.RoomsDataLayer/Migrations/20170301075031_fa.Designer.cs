@@ -41,7 +41,7 @@ namespace LodgerPms.RoomsDataLayer.Migrations
                     b.ToTable("FullName");
                 });
 
-            modelBuilder.Entity("LodgerPms.Domain.Rooms.Customer", b =>
+            modelBuilder.Entity("LodgerPms.Domain.Rooms.Department", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -62,10 +62,10 @@ namespace LodgerPms.RoomsDataLayer.Migrations
 
                     b.HasIndex("FullNameId");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Departments");
                 });
 
-            modelBuilder.Entity("LodgerPms.Domain.Rooms.Customer", b =>
+            modelBuilder.Entity("LodgerPms.Domain.Rooms.Department", b =>
                 {
                     b.HasOne("lodgerpms.Domain.Common.FullName", "FullName")
                         .WithMany()

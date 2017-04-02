@@ -84,7 +84,7 @@ namespace lodgerpms.Domain.Common
         //    get { return this.ContactInformation.PrimaryTelephone; }
         //}
         /// <summary>
-        /// Title for the customer (Mr, Mrs, etc)
+        /// Title for the Department (Mr, Mrs, etc)
         /// </summary>
         /// <returns>string</returns>
         public Title GetTitle()

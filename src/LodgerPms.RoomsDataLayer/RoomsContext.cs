@@ -9,7 +9,7 @@ namespace LodgerPms.RoomsDataLayer
         public RoomsContext(DbContextOptions<RoomsContext> options)
       : base(options)
         { }
-        //public DbSet<Customer> Customers { get; private set; }
+        //public DbSet<Department> Departments { get; private set; }
 
         public DbSet<BedType> BedTypes { get; private set; }
         public DbSet<RoomFacility> RoomFacilities { get; private set; }

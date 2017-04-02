@@ -26,17 +26,9 @@ namespace LodgerPms.UI.Site
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
 
-            //if (env.IsDevelopment())
-            //{
-            //    // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
-            //    builder.AddApplicationInsightsSettings(developerMode: true);
-            //}
-            //Configuration = builder.Build();
-
-
             if (env.IsDevelopment())
             {
-              //builder.AddUserSecrets();
+                builder.AddUserSecrets("test");
             }
 
             builder.AddEnvironmentVariables();
@@ -57,7 +49,7 @@ namespace LodgerPms.UI.Site
                 .AddDefaultTokenProviders();
 
             services.AddMvc();
-           // services.AddAutoMapper();
+           services.AddAutoMapper();
 
 
             services.AddAuthorization(options =>
@@ -77,12 +69,10 @@ namespace LodgerPms.UI.Site
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-           // app.UseApplicationInsightsRequestTelemetry();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                 app.UseDatabaseErrorPage();
+                app.UseDatabaseErrorPage();
                 app.UseBrowserLink();
             }
             else
@@ -90,16 +80,20 @@ namespace LodgerPms.UI.Site
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            //app.UseApplicationInsightsExceptionTelemetry();
-
             app.UseStaticFiles();
             app.UseIdentity();
+
+            app.UseFacebookAuthentication(new FacebookOptions()
+            {
+                AppId = "SetYourDataHere",
+                AppSecret = "SetYourDataHere"
+            });
 
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=welcome}/{id?}");
             });
 
             // Setting the IContainer interface for use like service locator for events.
