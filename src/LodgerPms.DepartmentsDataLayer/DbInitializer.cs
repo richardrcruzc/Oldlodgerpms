@@ -1,4 +1,5 @@
 ﻿using LodgerPms.DepartmentsDataLayer.Context;
+using LodgerPms.Domain.Departments.Models;
 using System.Linq;
 
 namespace LodgerPms.DepartmentsDataLayer
@@ -7,10 +8,20 @@ namespace LodgerPms.DepartmentsDataLayer
     {
         public static void Initialize(DepartmentsContext cntxt)
         {
-            if (!cntxt.Departments.Any())
+            if (!cntxt.DepartmentGroups.Any())
             {
-                //var d =Department.Create("Department");
-               // cntxt.Departments.AddAsync(d);
+                var dg = DepartmentGroup.Create("Group1");
+                cntxt.DepartmentGroups.AddAsync(dg);
+            }
+                if (!cntxt.Departments.Any())
+            {
+
+                var dg = DepartmentGroup.Create("Group1");
+                
+               var d = Department.Create(dg, DepartmentType.Debit,"Department 1", false,10, 0);
+               cntxt.Departments.AddAsync(d);
+                  d = Department.Create(dg, DepartmentType.Debit, "Department 2", false, 10, 0);
+                cntxt.Departments.AddAsync(d);
 
             }
         }
