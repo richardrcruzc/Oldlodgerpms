@@ -2,15 +2,15 @@
  
 namespace LodgerPms.Domain.Rooms
 {
-    public class Customer: Contact
+    public class Department: Contact
     {
-        public Customer(string firstName, string lastName, string email)
+        public Department(string firstName, string lastName, string email)
         {
             FullName = new FullName(firstName, lastName);
             EmailAddress = email;
            
         }
-        internal Customer()
+        internal Department()
         {
         }
         public string Code

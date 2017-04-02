@@ -17,7 +17,7 @@ namespace LodgerPms.Domain.Departments.Validations
         //    RuleFor(c => c.BirthDate)
         //        .NotEmpty()
         //        .Must(HaveMinimumAge)
-        //        .WithMessage("The customer must have 18 years or more");
+        //        .WithMessage("The Department must have 18 years or more");
         //}
 
         //protected void ValidateEmail()

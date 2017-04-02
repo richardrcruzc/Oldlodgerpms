@@ -23,7 +23,7 @@ namespace LodgerPms.RoomsDataLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Customers",
+                name: "Departments",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -37,9 +37,9 @@ namespace LodgerPms.RoomsDataLayer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Customers", x => x.Id);
+                    table.PrimaryKey("PK_Departments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Customers_FullName_FullNameId",
+                        name: "FK_Departments_FullName_FullNameId",
                         column: x => x.FullNameId,
                         principalTable: "FullName",
                         principalColumn: "Id",
@@ -47,15 +47,15 @@ namespace LodgerPms.RoomsDataLayer.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Customers_FullNameId",
-                table: "Customers",
+                name: "IX_Departments_FullNameId",
+                table: "Departments",
                 column: "FullNameId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Customers");
+                name: "Departments");
 
             migrationBuilder.DropTable(
                 name: "FullName");

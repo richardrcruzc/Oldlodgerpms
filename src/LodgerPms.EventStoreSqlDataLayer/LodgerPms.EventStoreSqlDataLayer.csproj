@@ -14,6 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LodgerPms.Domain.Core\LodgerPms.Domain.Core.csproj" />
     <ProjectReference Include="..\LodgerPms.Domain.Departments\LodgerPms.Domain.Departments.csproj" />
+    <ProjectReference Include="..\LodgerPms.Infra.CrossCutting.Identity\LodgerPms.Infra.CrossCutting.Identity.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +25,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="1.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.1" />
