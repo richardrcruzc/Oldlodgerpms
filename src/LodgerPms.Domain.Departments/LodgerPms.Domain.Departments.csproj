@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>LodgerPms.Domain.Departments</AssemblyName>
+    <PackageId>LodgerPms.Domain.Departments</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\lodgerpms.Domain.Common\lodgerpms.Domain.Common.csproj" />
+    <ProjectReference Include="..\LodgerPms.Domain.Core\LodgerPms.Domain.Core.csproj" />
+    <ProjectReference Include="..\LodgerPms.Domain.Interface\LodgerPms.Domain.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

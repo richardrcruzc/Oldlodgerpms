@@ -1,60 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{169FC118-1CF6-440E-8B69-2460BDF2F8FC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B255BE50-F7E2-470C-854F-7D111708A138}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Domain", "src\LodgerPms.Domain\LodgerPms.Domain.xproj", "{CA281480-612B-4029-A629-BFFBD7982A26}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Repositories", "src\LodgerPms.Repositories\LodgerPms.Repositories.xproj", "{D9638B7F-3CA8-4FCF-92E3-F19784CFD9B6}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Persistence", "src\LodgerPms.Persistence\LodgerPms.Persistence.xproj", "{3B4D30EF-E7AA-4DFE-A76E-643DDC0E167A}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Api", "src\LodgerPms.Api\LodgerPms.Api.xproj", "{C2B58A84-DCA5-43BB-AAE4-B18F9F9E925C}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApplication1", "src\WebApplication1\WebApplication1.xproj", "{D58782EB-11DA-4200-AB7D-DEA4DDB33CC4}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "lodgerpms.Domain.Common", "src\lodgerpms.Domain.Common\lodgerpms.Domain.Common.xproj", "{6364BD06-837E-4EFB-82AB-7AAECC862F48}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Domain.Agents", "src\LodgerPms.Domain.Agents\LodgerPms.Domain.Agents.xproj", "{1F615F90-79A6-4772-BF6C-3F73B57B5864}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Domain.Rooms", "src\LodgerPms.Domain.Rooms\LodgerPms.Domain.Rooms.xproj", "{F2005D3F-2B0A-4881-8556-CFB4E037C5A2}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.AgentsDataLayer", "src\LodgerPms.AgentsDataLayer\LodgerPms.AgentsDataLayer.xproj", "{446285D1-BD53-4B9C-9936-40F703663632}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Domain.Departments", "src\LodgerPms.Domain.Departments\LodgerPms.Domain.Departments.xproj", "{19ADBFB0-8906-41D9-B7FA-92F68A87A66A}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Domain.Bookings", "src\LodgerPms.Domain.Bookings\LodgerPms.Domain.Bookings.xproj", "{749AA137-6C7A-4AF8-982E-8988D0E45D3F}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.BookingsDataLayer", "src\LodgerPms.BookingsDataLayer\LodgerPms.BookingsDataLayer.xproj", "{C13D6C30-2494-4774-9DB1-0A51633B1FD2}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.DepartmentsDataLayer", "src\LodgerPms.DepartmentsDataLayer\LodgerPms.DepartmentsDataLayer.xproj", "{7DB87D9E-0A68-4DCC-A3DF-6E705FB5ED4F}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.RoomsDataLayer", "src\LodgerPms.RoomsDataLayer\LodgerPms.RoomsDataLayer.xproj", "{89F1139F-6C3D-4FDA-9194-43A458C2FF00}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{A47B09E4-CC4B-43A0-9EC9-44DF6F78D664}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LodgerPms Core", "LodgerPms Core", "{9BD9A381-77A8-48F5-9926-6463B687D167}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.CoreLibs", "src\LodgerPms.CoreLibs\LodgerPms.CoreLibs.xproj", "{9E5D9488-B9CC-4927-8B48-73243FF879CB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{04B3D762-BBD2-4C02-990C-00AC53DADE6E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Infra.CrossCutting.IoC", "src\LodgerPms.CrossCutting.IoC\LodgerPms.Infra.CrossCutting.IoC.xproj", "{6C6F8130-4BC0-4EDF-BE6B-FA41BECF42A0}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Infra.CrossCutting.Identity", "src\LodgerPms.Infra.CrossCutting.Identity\LodgerPms.Infra.CrossCutting.Identity.xproj", "{3D85917C-D6BE-4FF9-8B32-EFE0D96B74E6}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Infra.CrossCutting.Bus", "src\LodgerPms.Infra.CrossCutting.Bus\LodgerPms.Infra.CrossCutting.Bus.xproj", "{F143E2E0-B3C0-427E-95E1-DBD2AA4E8FCA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain Core", "Domain Core", "{71C8A52E-AC96-4395-8119-0E981B38A163}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Domain.Core", "src\LodgerPms.Domain.Core\LodgerPms.Domain.Core.xproj", "{A8E260C8-0532-4DC3-BEB3-DA2EA95B15BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{E6B732D1-2821-4DD2-824F-16D9D2217A3D}"
 EndProject
@@ -68,9 +25,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 Data", "4.1 Data", "{49
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 CrossCutting", "4.2 CrossCutting", "{3881707C-8E94-43CD-A7A3-B99A81CC1DAB}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.EventStoreSqlDataLayer", "src\LodgerPms.EventStoreSqlDataLayer\LodgerPms.EventStoreSqlDataLayer.xproj", "{EA54E7E5-6548-48A4-9A9A-2FDA59AE0F5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lodgerpms.Domain.Common", "src\lodgerpms.Domain.Common\lodgerpms.Domain.Common.csproj", "{6364BD06-837E-4EFB-82AB-7AAECC862F48}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.Domain.Interface", "src\LodgerPms.Domain.Interface\LodgerPms.Domain.Interface.xproj", "{428940BD-2355-44B5-8052-30388C36F914}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.Domain.Agents", "src\LodgerPms.Domain.Agents\LodgerPms.Domain.Agents.csproj", "{1F615F90-79A6-4772-BF6C-3F73B57B5864}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.Domain.Rooms", "src\LodgerPms.Domain.Rooms\LodgerPms.Domain.Rooms.csproj", "{F2005D3F-2B0A-4881-8556-CFB4E037C5A2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.AgentsDataLayer", "src\LodgerPms.AgentsDataLayer\LodgerPms.AgentsDataLayer.csproj", "{446285D1-BD53-4B9C-9936-40F703663632}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.Domain.Departments", "src\LodgerPms.Domain.Departments\LodgerPms.Domain.Departments.csproj", "{19ADBFB0-8906-41D9-B7FA-92F68A87A66A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.Domain.Bookings", "src\LodgerPms.Domain.Bookings\LodgerPms.Domain.Bookings.csproj", "{749AA137-6C7A-4AF8-982E-8988D0E45D3F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.BookingsDataLayer", "src\LodgerPms.BookingsDataLayer\LodgerPms.BookingsDataLayer.csproj", "{C13D6C30-2494-4774-9DB1-0A51633B1FD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.DepartmentsDataLayer", "src\LodgerPms.DepartmentsDataLayer\LodgerPms.DepartmentsDataLayer.csproj", "{7DB87D9E-0A68-4DCC-A3DF-6E705FB5ED4F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.RoomsDataLayer", "src\LodgerPms.RoomsDataLayer\LodgerPms.RoomsDataLayer.csproj", "{89F1139F-6C3D-4FDA-9194-43A458C2FF00}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LodgerPms.CoreLibs", "src\LodgerPms.CoreLibs\LodgerPms.CoreLibs.xproj", "{9E5D9488-B9CC-4927-8B48-73243FF879CB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.CrossCutting.IoC", "src\LodgerPms.CrossCutting.IoC\LodgerPms.CrossCutting.IoC.csproj", "{6C6F8130-4BC0-4EDF-BE6B-FA41BECF42A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.Infra.CrossCutting.Identity", "src\LodgerPms.Infra.CrossCutting.Identity\LodgerPms.Infra.CrossCutting.Identity.csproj", "{3D85917C-D6BE-4FF9-8B32-EFE0D96B74E6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.Infra.CrossCutting.Bus", "src\LodgerPms.Infra.CrossCutting.Bus\LodgerPms.Infra.CrossCutting.Bus.csproj", "{F143E2E0-B3C0-427E-95E1-DBD2AA4E8FCA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.Domain.Core", "src\LodgerPms.Domain.Core\LodgerPms.Domain.Core.csproj", "{A8E260C8-0532-4DC3-BEB3-DA2EA95B15BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.EventStoreSqlDataLayer", "src\LodgerPms.EventStoreSqlDataLayer\LodgerPms.EventStoreSqlDataLayer.csproj", "{EA54E7E5-6548-48A4-9A9A-2FDA59AE0F5D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LodgerPms.Domain.Interface", "src\LodgerPms.Domain.Interface\LodgerPms.Domain.Interface.csproj", "{428940BD-2355-44B5-8052-30388C36F914}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,26 +63,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CA281480-612B-4029-A629-BFFBD7982A26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA281480-612B-4029-A629-BFFBD7982A26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA281480-612B-4029-A629-BFFBD7982A26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA281480-612B-4029-A629-BFFBD7982A26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D9638B7F-3CA8-4FCF-92E3-F19784CFD9B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D9638B7F-3CA8-4FCF-92E3-F19784CFD9B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D9638B7F-3CA8-4FCF-92E3-F19784CFD9B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D9638B7F-3CA8-4FCF-92E3-F19784CFD9B6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3B4D30EF-E7AA-4DFE-A76E-643DDC0E167A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B4D30EF-E7AA-4DFE-A76E-643DDC0E167A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B4D30EF-E7AA-4DFE-A76E-643DDC0E167A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B4D30EF-E7AA-4DFE-A76E-643DDC0E167A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2B58A84-DCA5-43BB-AAE4-B18F9F9E925C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2B58A84-DCA5-43BB-AAE4-B18F9F9E925C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2B58A84-DCA5-43BB-AAE4-B18F9F9E925C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2B58A84-DCA5-43BB-AAE4-B18F9F9E925C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D58782EB-11DA-4200-AB7D-DEA4DDB33CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D58782EB-11DA-4200-AB7D-DEA4DDB33CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D58782EB-11DA-4200-AB7D-DEA4DDB33CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D58782EB-11DA-4200-AB7D-DEA4DDB33CC4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6364BD06-837E-4EFB-82AB-7AAECC862F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6364BD06-837E-4EFB-82AB-7AAECC862F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6364BD06-837E-4EFB-82AB-7AAECC862F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -167,11 +132,15 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{CA281480-612B-4029-A629-BFFBD7982A26} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
-		{D9638B7F-3CA8-4FCF-92E3-F19784CFD9B6} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
-		{3B4D30EF-E7AA-4DFE-A76E-643DDC0E167A} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
-		{C2B58A84-DCA5-43BB-AAE4-B18F9F9E925C} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
-		{D58782EB-11DA-4200-AB7D-DEA4DDB33CC4} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
+		{A47B09E4-CC4B-43A0-9EC9-44DF6F78D664} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
+		{04B3D762-BBD2-4C02-990C-00AC53DADE6E} = {A47B09E4-CC4B-43A0-9EC9-44DF6F78D664}
+		{71C8A52E-AC96-4395-8119-0E981B38A163} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
+		{E6B732D1-2821-4DD2-824F-16D9D2217A3D} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
+		{E99BD000-7039-49EE-A05B-EEE3EF5BDA92} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
+		{FBC858AE-E664-42C2-AC82-E1B3DAAE5193} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
+		{9E65E7F2-FF22-4582-A9F4-04A0274D8BDB} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
+		{49E4ED9E-6A2F-4C09-91A4-B00DCF240DE3} = {9E65E7F2-FF22-4582-A9F4-04A0274D8BDB}
+		{3881707C-8E94-43CD-A7A3-B99A81CC1DAB} = {9E65E7F2-FF22-4582-A9F4-04A0274D8BDB}
 		{6364BD06-837E-4EFB-82AB-7AAECC862F48} = {FBC858AE-E664-42C2-AC82-E1B3DAAE5193}
 		{1F615F90-79A6-4772-BF6C-3F73B57B5864} = {FBC858AE-E664-42C2-AC82-E1B3DAAE5193}
 		{F2005D3F-2B0A-4881-8556-CFB4E037C5A2} = {FBC858AE-E664-42C2-AC82-E1B3DAAE5193}
@@ -181,21 +150,11 @@ Global
 		{C13D6C30-2494-4774-9DB1-0A51633B1FD2} = {49E4ED9E-6A2F-4C09-91A4-B00DCF240DE3}
 		{7DB87D9E-0A68-4DCC-A3DF-6E705FB5ED4F} = {49E4ED9E-6A2F-4C09-91A4-B00DCF240DE3}
 		{89F1139F-6C3D-4FDA-9194-43A458C2FF00} = {49E4ED9E-6A2F-4C09-91A4-B00DCF240DE3}
-		{A47B09E4-CC4B-43A0-9EC9-44DF6F78D664} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
-		{9BD9A381-77A8-48F5-9926-6463B687D167} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
 		{9E5D9488-B9CC-4927-8B48-73243FF879CB} = {71C8A52E-AC96-4395-8119-0E981B38A163}
-		{04B3D762-BBD2-4C02-990C-00AC53DADE6E} = {A47B09E4-CC4B-43A0-9EC9-44DF6F78D664}
 		{6C6F8130-4BC0-4EDF-BE6B-FA41BECF42A0} = {3881707C-8E94-43CD-A7A3-B99A81CC1DAB}
 		{3D85917C-D6BE-4FF9-8B32-EFE0D96B74E6} = {3881707C-8E94-43CD-A7A3-B99A81CC1DAB}
 		{F143E2E0-B3C0-427E-95E1-DBD2AA4E8FCA} = {3881707C-8E94-43CD-A7A3-B99A81CC1DAB}
-		{71C8A52E-AC96-4395-8119-0E981B38A163} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
 		{A8E260C8-0532-4DC3-BEB3-DA2EA95B15BA} = {FBC858AE-E664-42C2-AC82-E1B3DAAE5193}
-		{E6B732D1-2821-4DD2-824F-16D9D2217A3D} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
-		{E99BD000-7039-49EE-A05B-EEE3EF5BDA92} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
-		{FBC858AE-E664-42C2-AC82-E1B3DAAE5193} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
-		{9E65E7F2-FF22-4582-A9F4-04A0274D8BDB} = {169FC118-1CF6-440E-8B69-2460BDF2F8FC}
-		{49E4ED9E-6A2F-4C09-91A4-B00DCF240DE3} = {9E65E7F2-FF22-4582-A9F4-04A0274D8BDB}
-		{3881707C-8E94-43CD-A7A3-B99A81CC1DAB} = {9E65E7F2-FF22-4582-A9F4-04A0274D8BDB}
 		{EA54E7E5-6548-48A4-9A9A-2FDA59AE0F5D} = {49E4ED9E-6A2F-4C09-91A4-B00DCF240DE3}
 		{428940BD-2355-44B5-8052-30388C36F914} = {FBC858AE-E664-42C2-AC82-E1B3DAAE5193}
 	EndGlobalSection

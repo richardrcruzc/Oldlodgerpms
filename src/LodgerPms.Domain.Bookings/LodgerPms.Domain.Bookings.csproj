@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <AssemblyName>LodgerPms.Domain.Bookings</AssemblyName>
+    <PackageId>LodgerPms.Domain.Bookings</PackageId>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LodgerPms.Domain.Agents\LodgerPms.Domain.Agents.csproj" />
+    <ProjectReference Include="..\lodgerpms.Domain.Common\lodgerpms.Domain.Common.csproj" />
+    <ProjectReference Include="..\LodgerPms.Domain.Departments\LodgerPms.Domain.Departments.csproj" />
+    <ProjectReference Include="..\LodgerPms.Domain.Rooms\LodgerPms.Domain.Rooms.csproj" />
+  </ItemGroup>
+
+</Project>
