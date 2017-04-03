@@ -28,7 +28,7 @@ namespace LodgerPms.EventStoreSqlDataLayer.Context
                 .Build();
 
             // define the database to use
-            optionsBuilder.UseSqlServer(config.GetConnectionString("StoredEventConnection"));
+            optionsBuilder.UseSqlServer(config.GetConnectionString("EventStoreSQLContextDB"));
         }
     }
 }

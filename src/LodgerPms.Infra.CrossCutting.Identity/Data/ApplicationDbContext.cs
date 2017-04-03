@@ -27,7 +27,7 @@ namespace LodgerPms.Infra.CrossCutting.Identity.Data
                 .Build();
 
             // define the database to use
-            optionsBuilder.UseSqlServer(config.GetConnectionString("DefaultConnection"));
+            optionsBuilder.UseSqlServer(config.GetConnectionString("ApplicationDbContextDB"));
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

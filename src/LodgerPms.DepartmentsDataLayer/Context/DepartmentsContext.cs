@@ -43,7 +43,7 @@ namespace LodgerPms.DepartmentsDataLayer.Context
                 .Build();
 
             // define the database to use
-            optionsBuilder.UseSqlServer(config.GetConnectionString("LodgerPmsDatabase"));
+            optionsBuilder.UseSqlServer(config.GetConnectionString("DepartmentsContextDB"));
         }
         }
 }

@@ -37,11 +37,11 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 return;
             }
 
-            var department = Department.Create(message.DepartmentGroup, message.DepartmentType, message.Description,message.ApplyTax, message.Amount,message.Percentage);
+            var department = Department.Create(message.Id,message.DepartmentGroup, message.DepartmentType, message.Description,message.ApplyTax, message.Amount,message.Percentage);
 
             if (_departmentRepository.GetByDescription(department.Description) != null)
             {
-                Bus.RaiseEvent(new DomainNotification(message.MessageType, "The Department e-mail has already been taken."));
+                Bus.RaiseEvent(new DomainNotification(message.MessageType, "The Department Description has already been taken."));
                 return;
             }
 
@@ -61,14 +61,14 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 return;
             }
 
-            var department = Department.Create(message.DepartmentGroup, message.DepartmentType, message.Description, message.ApplyTax, message.Amount, message.Percentage);
+            var department = Department.Create(message.Id, message.DepartmentGroup, message.DepartmentType, message.Description, message.ApplyTax, message.Amount, message.Percentage);
             var existingDepartment = _departmentRepository.GetByDescription(department.Description);
 
             if (existingDepartment != null)
             {
                 if (!existingDepartment.Equals(department))
                 {
-                    Bus.RaiseEvent(new DomainNotification(message.MessageType,"The Department e-mail has already been taken."));
+                    Bus.RaiseEvent(new DomainNotification(message.MessageType,"The Department description has already been taken."));
                     return;
                 }
             }

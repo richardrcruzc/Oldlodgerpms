@@ -13,6 +13,9 @@ using LodgerPms.DepartmentsDataLayer.Context;
 using LodgerPms.Infra.CrossCutting.Identity.Models;
 using AutoMapper;
 using LodgerPms.Infra.CrossCutting.Identity.Authorization;
+using LodgerPms.Infra.CrossCutting.Identity.Data;
+using LodgerPms.EventStoreSqlDataLayer.Context;
+using LodgerPms.RoomsDataLayer;
 
 namespace LodgerPms.UI.Site
 {
@@ -39,15 +42,26 @@ namespace LodgerPms.UI.Site
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        { 
+                services.AddDbContext<EventStoreSQLContext>(options =>
+                  options.UseSqlServer(Configuration.GetConnectionString("EventStoreSQLContextDB")));
+
+            
+            services.AddDbContext<RoomsContext>(options =>
+                  options.UseSqlServer(Configuration.GetConnectionString("RoomsContextDB")));
+
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+                  options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContextDB")));
+
             services.AddDbContext<DepartmentsContext>(options =>
-                  options.UseSqlServer(Configuration.GetConnectionString("LodgerPmsDatabase")));
+               options.UseSqlServer(Configuration.GetConnectionString("DepartmentsContextDB")));
 
             var test = Configuration.GetConnectionString("LodgerPmsDatabase");
 
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
                     options.Cookies.ApplicationCookie.AccessDeniedPath = "/home/access-denied")
-                .AddEntityFrameworkStores<DepartmentsContext>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
             services.AddMvc();

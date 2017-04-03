@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LodgerPms.CrossCutting.IoC\LodgerPms.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\LodgerPms.DepartmentsDataLayer\LodgerPms.DepartmentsDataLayer.csproj" />
+    <ProjectReference Include="..\LodgerPms.RoomsDataLayer\LodgerPms.RoomsDataLayer.csproj" />
   </ItemGroup>
 
   <ItemGroup>
