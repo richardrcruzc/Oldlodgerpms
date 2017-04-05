@@ -35,30 +35,32 @@ namespace LodgerPms.Domain.Rooms
 
         #endregion
 
-
-
+        private string description;
         public string Description
         {
-            get { return this.Description; }
+            get { return description; }
             private set
             {
                 AssertionConcern.AssertArgumentNotNull(value, "The RoomGroup description  must be provided.");
                 AssertionConcern.AssertArgumentLength(value, 100, "The RoomGroup description maximum is 100 characters.");
 
-                this.Description = value;
+                description = value;
             }
         }
+        private string code;
         public string Code
         {
-            get { return this.Code; }
+            get { return code; }
             private set
             {
                 AssertionConcern.AssertArgumentNotNull(value, "The RoomGroup Code must be provided.");
                 AssertionConcern.AssertArgumentLength(value, 10, "The RoomGroup  Code maximum is 10 characters.");
 
-                this.Code = value;
+                code = value;
             }
         }
+
+       
         public IEnumerable<RoomType> RoomTypeList { get; private set; }
 
     }

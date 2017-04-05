@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LodgerPms.Application.ViewModels.Deparments.Deparments;
+using LodgerPms.Application.ViewModels.Deparments;
 using LodgerPms.Domain.Departments.Models;
 
 

@@ -2,7 +2,7 @@
 using LodgerPms.Domain.Rooms;
 using Microsoft.EntityFrameworkCore;
 
-namespace LodgerPms.RoomsDataLayer
+namespace LodgerPms.RoomsDataLayer.Context
 {
     public class RoomsContext : DbContext
     {
@@ -32,6 +32,7 @@ namespace LodgerPms.RoomsDataLayer
             modelBuilder.Ignore<lodgerpms.Domain.Common.EmailAddress>();
             modelBuilder.Ignore<lodgerpms.Domain.Common.Person>();
             modelBuilder.Ignore<lodgerpms.Domain.Common.ContactInformation>();
+            modelBuilder.Ignore<Department>();
 
             //     modelBuilder.Entity<RoomExposure>()
             //      .ToTable("RoomExposures")

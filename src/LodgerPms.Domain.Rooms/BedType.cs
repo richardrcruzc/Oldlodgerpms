@@ -11,6 +11,12 @@ namespace LodgerPms.Domain.Rooms
     {
         public static BedType Create(string code, string description)
         {
+            AssertionConcern.AssertArgumentNotNull(description, "The Bed Type description must be provided.");
+            AssertionConcern.AssertArgumentLength(description, 100, "The Bed Type description maximum is 100 characters.");
+
+            AssertionConcern.AssertArgumentNotNull(code, "The Bed Type Code must be provided.");
+            AssertionConcern.AssertArgumentLength(code, 10, "The Bed Type Code maximum is 10 characters.");
+
 
             var bedType = new BedType { Description = description , Code=code};
             return bedType;
@@ -35,26 +41,8 @@ namespace LodgerPms.Domain.Rooms
         #endregion
 
 
-        public string Description {
-            get { return this.Description; }
-            private set {
-                AssertionConcern.AssertArgumentNotNull(value, "The Bed Type description must be provided.");
-                AssertionConcern.AssertArgumentLength(value, 100, "The Bed Type description maximum is 100 characters.");
-
-                this.Description = value;
-            }
-        }
-        public string Code
-        {
-            get { return this.Code; }
-            private set
-            {
-                AssertionConcern.AssertArgumentNotNull(value, "The Bed Type Code must be provided.");
-                AssertionConcern.AssertArgumentLength(value, 10, "The Bed Type Code maximum is 10 characters.");
-
-                this.Code = value;
-            }
-        }
+        public string Description { get; private set; }
+        public string Code { get; private set; }
 
         public IEnumerable<RoomInfo> RoomInfoList { get; private set; }
 

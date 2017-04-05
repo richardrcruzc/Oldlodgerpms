@@ -43,6 +43,9 @@ namespace LodgerPms.Domain.Rooms
         /// </summary>
         protected RoomInfo()
         {
+            RoomFacilityList = new List<RoomFacility>();
+            RoomStatusList = new List<RoomStatus>();
+            RoomExposureList = new List<RoomExposure>();
     }
 
         #endregion
@@ -50,47 +53,54 @@ namespace LodgerPms.Domain.Rooms
         public bool CommonArea { get; private set; }
         public bool PseudoRoom { get; private set; }
         public bool CanSmoke { get; private set; }
+
+        private string roomNumber;
         public string RoomNumber {
-            get { return this.RoomNumber; }
+            get { return roomNumber; }
             private set
             {
                 AssertionConcern.AssertArgumentNotEmpty(value, "The RoomNumber must be provided.");
                 AssertionConcern.AssertArgumentLength(value, 10, "The RoomNumber must be 10 characters or less.");
-                this.RoomNumber = value;
+                roomNumber = value;
             }
         }
+        private string description;
         public string Description {
-            get { return this.Description; }
+            get { return description; }
             private set
             {
                 AssertionConcern.AssertArgumentNotEmpty(value, "The Description must be provided.");
                 AssertionConcern.AssertArgumentLength(value, 100, "The Description must be 100 characters or less.");
-                this.Description = value;
+                description = value;
             }
         }
+        private RoomType roomType;
         public RoomType RoomType {
-            get { return this.RoomType; }
+            get { return roomType; }
             private set
             {
                 AssertionConcern.AssertArgumentNotNull(value, "The RoomType must be provided.");
-                 this.RoomType = value;
+                roomType = value;
             }
         }
+        private BedType bedType;
         public BedType BedType {
-            get { return this.BedType; }
+            get { return bedType; }
             private set
             {
                 AssertionConcern.AssertArgumentNotNull(value, "The BedType must be provided.");
-                this.BedType = value;
+                bedType = value;
             }
         }
+
+        private RoomLocation roomLocation;
         public RoomLocation RoomLocation
         {
-            get { return this.RoomLocation; }
+            get { return roomLocation; }
             private set
             {
                 AssertionConcern.AssertArgumentNotNull(value, "The RoomLocation must be provided.");
-                this.RoomLocation = value;
+                roomLocation = value;
             }
         }
         public ICollection<RoomExposure> RoomExposureList { get; private set; }

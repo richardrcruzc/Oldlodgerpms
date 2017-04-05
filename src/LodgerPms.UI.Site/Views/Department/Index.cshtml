@@ -1,4 +1,4 @@
-@model IEnumerable<LodgerPms.Application.ViewModels.Deparments.Deparments.DepartmentViewModel>
+@model IEnumerable<LodgerPms.Application.ViewModels.Deparments.DepartmentViewModel>
 
 @{
     ViewData["Title"] = "Department Management";
@@ -16,6 +16,19 @@
                 <a asp-action="Create" class="btn btn-primary">
                     <span title="Register New" class="glyphicon glyphicon-plus-sign"></span> Register New
                 </a>
+            </div>
+            <div class="pull-right">
+
+                <form asp-controller="Department" asp-action="Index" method="post">
+                    <p>
+                        Type: <input name="DepartmentType" value="false" type="radio" />Debit
+                        <input name="DepartmentType" value="false" type="radio" />Credit
+                    </p>
+                    <p>
+                        Title: <input type="text" name="SearchString">
+                        <input type="submit" value="Filter" />
+                    </p>
+                </form>
             </div>
         </div>
     </div>

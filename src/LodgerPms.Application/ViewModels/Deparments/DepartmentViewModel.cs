@@ -1,10 +1,10 @@
 ﻿using LodgerPms.Domain.Departments.Models;
 using System;
-
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace LodgerPms.Application.ViewModels.Deparments.Deparments
+namespace LodgerPms.Application.ViewModels.Deparments
 {
     public class DepartmentViewModel
     {
@@ -21,4 +21,5 @@ namespace LodgerPms.Application.ViewModels.Deparments.Deparments
         [MaxLength(200)]
         public string Description { get;  set; }
     }
-}
+    
+    }

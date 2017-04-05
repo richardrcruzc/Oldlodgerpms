@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
 using LodgerPms.Application.EventSourcedNormalizers.Departments;
 using LodgerPms.Application.Interfaces.Departments;
-using LodgerPms.Application.ViewModels.Deparments.Deparments;
+using LodgerPms.Application.ViewModels.Deparments;
 using LodgerPms.Domain.Core.Bus;
 using LodgerPms.Domain.Departments.Commands;
 using LodgerPms.Domain.Departments.Interfaces;
 using LodgerPms.EventStoreSqlDataLayer.Repository.EventSourcing;
 using System;
-using System.Collections.Generic;
+using System.Collections.Generic; 
 
 namespace LodgerPms.Application.Services.Departments
 {

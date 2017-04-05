@@ -16,6 +16,7 @@ using LodgerPms.Infra.CrossCutting.Identity.Authorization;
 using LodgerPms.Infra.CrossCutting.Identity.Data;
 using LodgerPms.EventStoreSqlDataLayer.Context;
 using LodgerPms.RoomsDataLayer;
+using LodgerPms.RoomsDataLayer.Context;
 
 namespace LodgerPms.UI.Site
 {
@@ -80,7 +81,7 @@ namespace LodgerPms.UI.Site
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env,
-            ILoggerFactory loggerFactory, IHttpContextAccessor accessor)
+            ILoggerFactory loggerFactory, IHttpContextAccessor accessor, DepartmentsContext deptoCntxt, RoomsContext cntxt)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -114,6 +115,12 @@ namespace LodgerPms.UI.Site
 
             // Setting the IContainer interface for use like service locator for events.
             InMemoryBus.ContainerAccessor = () => accessor.HttpContext.RequestServices;
+            
+            
+            DepartmentsDataLayer.DbInitializer.Initialize(deptoCntxt);
+            RoomsDataLayer.DbInitializer.Initialize(cntxt);
+
+
         }
 
         private static void RegisterServices(IServiceCollection services)

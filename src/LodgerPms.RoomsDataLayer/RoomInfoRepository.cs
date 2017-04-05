@@ -1,4 +1,5 @@
 ﻿using LodgerPms.Domain.Rooms;
+using LodgerPms.RoomsDataLayer.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
