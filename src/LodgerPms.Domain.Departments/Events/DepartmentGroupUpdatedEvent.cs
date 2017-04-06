@@ -4,16 +4,17 @@ using LodgerPms.Domain.Departments.Models;
 
 namespace LodgerPms.Domain.Departments.Events
 {
-    public class DepartmentGroupRegisteredEvent : Event
+    public class DepartmentGroupUpdatedEvent : Event
     {
-        public DepartmentGroupRegisteredEvent(string code,  string description )
+        public DepartmentGroupUpdatedEvent(string id, string code, string description)
         {
-            // Id = id;
+             Id = id;
             Code = code;
             Description = description;
         }
         public string Id { get; set; }
-        public string Code { get; set; }      
+        public string Code { get; set; }
+        
         public string Description { get; private set; }
 
     }

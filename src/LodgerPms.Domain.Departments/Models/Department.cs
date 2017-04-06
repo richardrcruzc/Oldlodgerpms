@@ -46,6 +46,7 @@ namespace LodgerPms.Domain.Departments.Models
     }
     public enum DepartmentType
     {
+       // [Display(Name = "United Mexican States")]
         Debit = 1,
         Credit = 2
     }

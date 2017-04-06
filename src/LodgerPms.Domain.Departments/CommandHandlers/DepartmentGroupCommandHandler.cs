@@ -1,24 +1,25 @@
-﻿using System;
+﻿
+
 using LodgerPms.Domain.Core.Bus;
 using LodgerPms.Domain.Core.Events;
 using LodgerPms.Domain.Core.Notifications;
-using LodgerPms.Domain.Departments.Interfaces;
 using LodgerPms.Domain.Departments.Commands;
-using LodgerPms.Domain.Departments.Models;
 using LodgerPms.Domain.Departments.Events;
+using LodgerPms.Domain.Departments.Interfaces;
+using LodgerPms.Domain.Departments.Models;
 using LodgerPms.Domain.Interface.Interfaces;
 
 namespace LodgerPms.Domain.Departments.CommandHandlers
 {
-    public class DepartmentCommandHandler : CommandHandler,
-        IHandler<RegisterNewDepartmentCommand>,
-        IHandler<UpdateDepartmentCommand>,
-        IHandler<RemoveDepartmentCommand>
+    public class DepartmentGroupCommandHandler : CommandHandler,
+        IHandler<RegisterNewDepartmentGroupCommand>,
+        IHandler<UpdateDepartmentGroupCommand>,
+        IHandler<RemoveDepartmentGroupCommand>
     {
-        private readonly IDepartmentRepository _departmentRepository;
+        private readonly IDepartmentGroupRepository _departmentRepository;
         private readonly IBus Bus;
 
-        public DepartmentCommandHandler(IDepartmentRepository DepartmentRepository,
+        public DepartmentGroupCommandHandler(IDepartmentGroupRepository DepartmentRepository,
                                       IUnitOfWork uow,
                                       IBus bus,
                                       IDomainNotificationHandler<DomainNotification> notifications)
@@ -29,7 +30,7 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
             Bus = bus;
         }
 
-        public void Handle(RegisterNewDepartmentCommand message)
+        public void Handle(RegisterNewDepartmentGroupCommand message)
         {
             if (!message.IsValid())
             {
@@ -37,11 +38,11 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 return;
             }
 
-            var department = Department.Create(message.Id,message.DepartmentGroup, message.DepartmentType, message.Description,message.ApplyTax, message.Amount,message.Percentage);
+            var department = DepartmentGroup.Create(message.Id,message.Code, message.Description);
 
             if (_departmentRepository.GetByDescription(department.Description) != null)
             {
-                Bus.RaiseEvent(new DomainNotification(message.MessageType, "The Department Description has already been taken."));
+                Bus.RaiseEvent(new DomainNotification(message.MessageType, "The Department Group Description has already been taken."));
                 return;
             }
 
@@ -49,11 +50,11 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
 
             if (Commit())
             {
-                Bus.RaiseEvent(new DepartmentRegisteredEvent(department.DepartmentGroup, department.DepartmentType, department.Description, department.ApplyTax, department.Amount, department.Percentage));
+                Bus.RaiseEvent(new DepartmentGroupRegisteredEvent(department.Code, department.Description ));
             }
         }
 
-        public void Handle(UpdateDepartmentCommand message)
+        public void Handle(UpdateDepartmentGroupCommand message)
         {
             if (!message.IsValid())
             {
@@ -61,14 +62,14 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 return;
             }
 
-            var department = Department.Create(message.Id, message.DepartmentGroup, message.DepartmentType, message.Description, message.ApplyTax, message.Amount, message.Percentage);
+            var department = DepartmentGroup.Create(message.Id, message.Code,  message.Description);
             var existingDepartment = _departmentRepository.GetByDescription(department.Description);
 
             if (existingDepartment != null)
             {
                 if (!existingDepartment.Equals(department))
                 {
-                    Bus.RaiseEvent(new DomainNotification(message.MessageType,"The Department description has already been taken."));
+                    Bus.RaiseEvent(new DomainNotification(message.MessageType,"The Department group description has already been taken."));
                     return;
                 }
             }
@@ -77,11 +78,11 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
 
             if (Commit())
             {
-                Bus.RaiseEvent(new DepartmentUpdatedEvent(department.DepartmentGroup, department.DepartmentType, department.Description, department.ApplyTax, department.Amount, department.Percentage));
+                Bus.RaiseEvent(new DepartmentGroupUpdatedEvent( department.Id, department.Code, department.Description ));
             }
         }
 
-        public void Handle(RemoveDepartmentCommand message)
+        public void Handle(RemoveDepartmentGroupCommand message)
         {
             if (!message.IsValid())
             {
@@ -93,13 +94,13 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
 
             if (Commit())
             {
-                Bus.RaiseEvent(new DepartmentRemovedEvent(message.Id));
+                Bus.RaiseEvent(new DepartmentGroupRemovedEvent(message.Id));
             }
         }
 
         public void Dispose()
         {
-            _departmentRepository.Dispose();
+             _departmentRepository.Dispose();
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿
 using LodgerPms.Domain.Core.Bus;
 using LodgerPms.Domain.Core.Commands;
-using LodgerPms.Domain.Core.Notifications;
-using LodgerPms.Domain.Departments.Interfaces;
+using LodgerPms.Domain.Core.Notifications; 
 using LodgerPms.Domain.Interface.Interfaces;
 
 namespace LodgerPms.Domain.Departments.CommandHandlers

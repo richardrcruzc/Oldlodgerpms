@@ -39,6 +39,7 @@ namespace LodgerPms.Infra.CrossCutting.IoC
             services.AddSingleton(Mapper.Configuration);
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
             services.AddScoped<IDeparmentAppService, DepartmentAppService>();
+            services.AddScoped<IDepartmentGroupAppService, DepartmentGroupAppService>();
 
             // Domain - Events
             services.AddScoped<IDomainNotificationHandler<DomainNotification>, DomainNotificationHandler>();
@@ -46,12 +47,27 @@ namespace LodgerPms.Infra.CrossCutting.IoC
             services.AddScoped<IHandler<DepartmentUpdatedEvent>, DepartmentEventHandler>();
             services.AddScoped<IHandler<DepartmentRemovedEvent>, DepartmentEventHandler>();
 
+            services.AddScoped<IHandler<DepartmentGroupRegisteredEvent>, DepartmentGroupEventHandler>();
+            services.AddScoped<IHandler<DepartmentGroupUpdatedEvent>, DepartmentGroupEventHandler>();
+            services.AddScoped<IHandler<DepartmentGroupRemovedEvent>, DepartmentGroupEventHandler>();
+
+
+
             // Domain - Commands
+            //department
             services.AddScoped<IHandler<RegisterNewDepartmentCommand>, DepartmentCommandHandler>();
             services.AddScoped<IHandler<UpdateDepartmentCommand>, DepartmentCommandHandler>();
             services.AddScoped<IHandler<RemoveDepartmentCommand>, DepartmentCommandHandler>();
 
+            //department group
+            services.AddScoped<IHandler<RegisterNewDepartmentGroupCommand>, DepartmentGroupCommandHandler>();
+            services.AddScoped<IHandler<UpdateDepartmentGroupCommand>, DepartmentGroupCommandHandler>();
+            services.AddScoped<IHandler<RemoveDepartmentGroupCommand>, DepartmentGroupCommandHandler>();
+
+
+            //repository
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+            services.AddScoped<IDepartmentGroupRepository, DepartmentGroupRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<DepartmentsContext>();
 

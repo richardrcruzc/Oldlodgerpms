@@ -117,6 +117,7 @@ namespace LodgerPms.UI.Site
             InMemoryBus.ContainerAccessor = () => accessor.HttpContext.RequestServices;
             
             
+            //data seeding 
             DepartmentsDataLayer.DbInitializer.Initialize(deptoCntxt);
             RoomsDataLayer.DbInitializer.Initialize(cntxt);
 

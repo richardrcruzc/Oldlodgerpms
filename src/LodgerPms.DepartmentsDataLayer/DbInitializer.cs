@@ -223,6 +223,22 @@ namespace LodgerPms.DepartmentsDataLayer
                 cntxt.SaveChanges();
 
             }
+
+
+            if (!cntxt.FolioPatterns.Any())
+            {
+                var f = FolioPattern.Create("BAR", "Barter");
+                cntxt.FolioPatterns.Add(f);
+                 f = FolioPattern.Create("VOU", "Gift Voucher");
+                cntxt.FolioPatterns.Add(f);
+                 f = FolioPattern.Create("COR", "Corporate");
+                cntxt.FolioPatterns.Add(f);
+                f = FolioPattern.Create("OWN", "Pay direct hotel");
+                cntxt.FolioPatterns.Add(f);
+                f = FolioPattern.Create("AGT", "Agent Account");
+                cntxt.FolioPatterns.Add(f);
+                cntxt.SaveChanges();
+            }
         }
     }
 

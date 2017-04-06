@@ -10,6 +10,7 @@ namespace LodgerPms.Application.AutoMapper.Departments
         public DomainToViewModelMappingProfile()
         {
             CreateMap<Department, DepartmentViewModel>();
+            CreateMap<DepartmentGroup, DepartmentGroupViewModel>();
         }
     }
 }

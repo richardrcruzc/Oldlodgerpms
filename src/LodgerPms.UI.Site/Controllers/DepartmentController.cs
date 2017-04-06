@@ -8,18 +8,26 @@ using LodgerPms.Application.Interfaces.Departments;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data;
-using System.Linq; 
+using System.Linq;
+using LodgerPms.Application.Services.Departments;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using LodgerPms.UI.Site.ViewModel;
 
 namespace LodgerPms.UI.Site.Controllers
 {
     [Authorize]
     public class DepartmentController : BaseController
     {
-        private readonly IDeparmentAppService _DepartmentAppService;
+        private readonly IDeparmentAppService _departmentAppService;
+        private readonly IDepartmentGroupAppService _departmentGroupAppService;
 
-        public DepartmentController(IDeparmentAppService DepartmentAppService, IDomainNotificationHandler<DomainNotification> notifications) : base(notifications)
+        public DepartmentController(IDeparmentAppService DepartmentAppService, 
+            IDomainNotificationHandler<DomainNotification> notifications,
+             IDepartmentGroupAppService departmentGroupAppService) 
+            : base(notifications)
         {
-            _DepartmentAppService = DepartmentAppService;
+            _departmentAppService = DepartmentAppService;
+            _departmentGroupAppService = departmentGroupAppService;
         }
 
 
@@ -29,15 +37,21 @@ namespace LodgerPms.UI.Site.Controllers
         [AllowAnonymous]
         [Route("Department-management/list-all")]
         public IActionResult Index()
-        { 
-            return View(_DepartmentAppService.GetAll());
+        {
+
+            var model = new DepartmentListModel();
+            var g = _departmentGroupAppService.GetAll().Select(x => new SelectListItem { Value = x.Id, Text=x.Description });
+            model.DepartmentGroups = g.ToList();
+            model.Departments = _departmentAppService.GetAll().ToList();
+
+            return View(model);
         }
         [HttpPost]
         [AllowAnonymous]
         [Route("Department-management/list-all")]
         public IActionResult Index(string searchString, string DepartmentType)
         {
-            var departments = _DepartmentAppService.GetAll();
+            var departments = _departmentAppService.GetAll();
            
 
             if (!String.IsNullOrEmpty(searchString))
@@ -59,7 +73,7 @@ namespace LodgerPms.UI.Site.Controllers
                 return NotFound();
             }
 
-            var DepartmentViewModel = _DepartmentAppService.GetById(id);
+            var DepartmentViewModel = _departmentAppService.GetById(id);
 
             if (DepartmentViewModel == null)
             {
@@ -74,7 +88,17 @@ namespace LodgerPms.UI.Site.Controllers
         [Route("Department-management/register-new")]
         public IActionResult Create()
         {
-            return View();
+            var groups = _departmentGroupAppService.GetAll()
+                .Select(x=> new SelectListItem {
+                    Value= x.Id,
+                    Text =  x.Description
+                }).ToList();
+
+            ViewData["groups"] = groups;
+
+            var model = new DepartmentViewModel();
+            model.DepartmentGroups = groups;
+            return View(model);
         }
 
         [HttpPost]
@@ -84,7 +108,7 @@ namespace LodgerPms.UI.Site.Controllers
         public IActionResult Create(DepartmentViewModel DepartmentViewModel)
         {
             if (!ModelState.IsValid) return View(DepartmentViewModel);
-            _DepartmentAppService.Register(DepartmentViewModel);
+            _departmentAppService.Register(DepartmentViewModel);
 
             if (IsValidOperation())
                 ViewBag.Sucesso = "Department Registered!";
@@ -102,7 +126,7 @@ namespace LodgerPms.UI.Site.Controllers
                 return NotFound();
             }
 
-            var DepartmentViewModel = _DepartmentAppService.GetById(id);
+            var DepartmentViewModel = _departmentAppService.GetById(id);
 
             if (DepartmentViewModel == null)
             {
@@ -120,7 +144,7 @@ namespace LodgerPms.UI.Site.Controllers
         {
             if (!ModelState.IsValid) return View(DepartmentViewModel);
 
-            _DepartmentAppService.Update(DepartmentViewModel);
+            _departmentAppService.Update(DepartmentViewModel);
 
             if (IsValidOperation())
                 ViewBag.Sucesso = "Department Updated!";
@@ -138,7 +162,7 @@ namespace LodgerPms.UI.Site.Controllers
                 return NotFound();
             }
 
-            var DepartmentViewModel = _DepartmentAppService.GetById(id);
+            var DepartmentViewModel = _departmentAppService.GetById(id);
 
             if (DepartmentViewModel == null)
             {
@@ -154,9 +178,9 @@ namespace LodgerPms.UI.Site.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(string id=null)
         {
-            _DepartmentAppService.Remove(id);
+            _departmentAppService.Remove(id);
 
-            if (!IsValidOperation()) return View(_DepartmentAppService.GetById(id));
+            if (!IsValidOperation()) return View(_departmentAppService.GetById(id));
 
             ViewBag.Sucesso = "Department Removed!";
             return RedirectToAction("Index");
@@ -166,7 +190,7 @@ namespace LodgerPms.UI.Site.Controllers
         [Route("Department-management/Department-history/{id:guid}")]
         public JsonResult History(string  id=null)
         {
-            var DepartmentHistoryData = _DepartmentAppService.GetAllHistory(id);
+            var DepartmentHistoryData = _departmentAppService.GetAllHistory(id);
             return Json(DepartmentHistoryData);
         }
 
@@ -180,14 +204,14 @@ namespace LodgerPms.UI.Site.Controllers
         [Route("Department-group-management/list-all")]
         public IActionResult GroupList()
         {
-            return View(_DepartmentAppService.GetAll());
+            return View(_departmentAppService.GetAll());
         }
         [HttpPost]
         [AllowAnonymous]
         [Route("Department-group-management/list-all")]
         public IActionResult GroupList(string searchString)
         {
-            var departments = _DepartmentAppService.GetAll();
+            var departments = _departmentAppService.GetAll();
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -208,7 +232,7 @@ namespace LodgerPms.UI.Site.Controllers
                 return NotFound();
             }
 
-            var DepartmentViewModel = _DepartmentAppService.GetById(id);
+            var DepartmentViewModel = _departmentAppService.GetById(id);
 
             if (DepartmentViewModel == null)
             {
@@ -220,7 +244,7 @@ namespace LodgerPms.UI.Site.Controllers
 
         [HttpGet]
         [Authorize(Policy = "CanWriteDepartmentData")]
-        [Route("Department-management/register-new")]
+        [Route("Department-management/group-register-new")]
         public IActionResult GroupCreate()
         {
             return View();
@@ -228,12 +252,12 @@ namespace LodgerPms.UI.Site.Controllers
 
         [HttpPost]
         [Authorize(Policy = "CanWriteDepartmentData")]
-        [Route("Department-management/register-new")]
+        [Route("Department-management/group-register-new")]
         [ValidateAntiForgeryToken]
         public IActionResult GroupCreate(DepartmentViewModel DepartmentViewModel)
         {
             if (!ModelState.IsValid) return View(DepartmentViewModel);
-            _DepartmentAppService.Register(DepartmentViewModel);
+            _departmentAppService.Register(DepartmentViewModel);
 
             if (IsValidOperation())
                 ViewBag.Sucesso = "Department Registered!";
@@ -243,7 +267,7 @@ namespace LodgerPms.UI.Site.Controllers
 
         [HttpGet]
         [Authorize(Policy = "CanWriteDepartmentData")]
-        [Route("Department-management/edit-Department/{id:guid}")]
+        [Route("Department-management/group-edit-Department/{id:guid}")]
         public IActionResult GroupEdit(string id = null)
         {
             if (id == null)
@@ -251,7 +275,7 @@ namespace LodgerPms.UI.Site.Controllers
                 return NotFound();
             }
 
-            var DepartmentViewModel = _DepartmentAppService.GetById(id);
+            var DepartmentViewModel = _departmentAppService.GetById(id);
 
             if (DepartmentViewModel == null)
             {
@@ -263,13 +287,13 @@ namespace LodgerPms.UI.Site.Controllers
 
         [HttpPost]
         [Authorize(Policy = "CanWriteDepartmentData")]
-        [Route("Department-management/edit-Department/{id:guid}")]
+        [Route("Department-management/group-edit-Department/{id:guid}")]
         [ValidateAntiForgeryToken]
         public IActionResult GroupEdit(DepartmentViewModel DepartmentViewModel)
         {
             if (!ModelState.IsValid) return View(DepartmentViewModel);
 
-            _DepartmentAppService.Update(DepartmentViewModel);
+            _departmentAppService.Update(DepartmentViewModel);
 
             if (IsValidOperation())
                 ViewBag.Sucesso = "Department Updated!";
@@ -279,7 +303,7 @@ namespace LodgerPms.UI.Site.Controllers
 
         [HttpGet]
         [Authorize(Policy = "CanRemoveDepartmentData")]
-        [Route("Department-management/remove-Department/{id:guid}")]
+        [Route("Department-management/group-remove-Department/{id:guid}")]
         public IActionResult GroupDelete(string id = null)
         {
             if (id == null)
@@ -287,7 +311,7 @@ namespace LodgerPms.UI.Site.Controllers
                 return NotFound();
             }
 
-            var DepartmentViewModel = _DepartmentAppService.GetById(id);
+            var DepartmentViewModel = _departmentAppService.GetById(id);
 
             if (DepartmentViewModel == null)
             {
@@ -299,23 +323,23 @@ namespace LodgerPms.UI.Site.Controllers
 
         [HttpPost, ActionName("Delete")]
         [Authorize(Policy = "CanRemoveDepartmentData")]
-        [Route("Department-management/remove-Department/{id:guid}")]
+        [Route("Department-management/group-remove-Department/{id:guid}")]
         [ValidateAntiForgeryToken]
         public IActionResult GroupDeleteConfirmed(string id = null)
         {
-            _DepartmentAppService.Remove(id);
+            _departmentAppService.Remove(id);
 
-            if (!IsValidOperation()) return View(_DepartmentAppService.GetById(id));
+            if (!IsValidOperation()) return View(_departmentAppService.GetById(id));
 
             ViewBag.Sucesso = "Department Removed!";
             return RedirectToAction("Index");
         }
 
         [AllowAnonymous]
-        [Route("Department-management/Department-history/{id:guid}")]
+        [Route("Department-management/group-Department-history/{id:guid}")]
         public JsonResult GroupHistory(string id = null)
         {
-            var DepartmentHistoryData = _DepartmentAppService.GetAllHistory(id);
+            var DepartmentHistoryData = _departmentAppService.GetAllHistory(id);
             return Json(DepartmentHistoryData);
         }
 

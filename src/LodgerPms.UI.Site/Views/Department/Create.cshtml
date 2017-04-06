@@ -15,8 +15,25 @@
         <div class="form-group">
             <label asp-for="DepartmentGroup" class="col-md-2 control-label"></label>
             <div class="col-md-10">
-                <input asp-for="DepartmentGroup" class="form-control" />
+               
+                <select asp-for="DepartmentGroup" asp-items="Model.DepartmentGroups" class="form-control" ></select> 
                 <span asp-validation-for="DepartmentGroup" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="DepartmentType" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                
+                  @*<select asp-for="DepartmentType"
+                        asp-items="Html.GetEnumSelectList<DepartmentTypes>()"  class="form-control"> 
+                </select>*@ 
+                <select data-val="true" data-val-required="The Department Type field is required."
+                        id="DepartmentType" name="DepartmentType"  class="form-control" >
+                    
+                    <option value="1">Debit</option>
+                    <option value="2">Credit</option>
+                </select>
+                <span asp-validation-for="DepartmentType" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
