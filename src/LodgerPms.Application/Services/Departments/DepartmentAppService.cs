@@ -18,7 +18,10 @@ namespace LodgerPms.Application.Services.Departments
         private readonly IEventStoreRepository _eventStoreRepository;
         private readonly IBus Bus;
 
-        public DepartmentAppService(IMapper mapper, IDepartmentRepository departmentRepository, IEventStoreRepository eventStoreRepository, IBus bus)
+        public DepartmentAppService(IMapper mapper, 
+            IDepartmentRepository departmentRepository, 
+            IEventStoreRepository eventStoreRepository, 
+            IBus bus)
         {
 
             this._mapper = mapper;

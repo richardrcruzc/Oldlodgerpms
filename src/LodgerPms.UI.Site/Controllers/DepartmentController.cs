@@ -94,8 +94,6 @@ namespace LodgerPms.UI.Site.Controllers
                     Text =  x.Description
                 }).ToList();
 
-            ViewData["groups"] = groups;
-
             var model = new DepartmentViewModel();
             model.DepartmentGroups = groups;
             return View(model);
@@ -105,15 +103,20 @@ namespace LodgerPms.UI.Site.Controllers
         [Authorize(Policy = "CanWriteDepartmentData")]
         [Route("Department-management/register-new")]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(DepartmentViewModel DepartmentViewModel)
+        public IActionResult Create(DepartmentViewModel model)
         {
-            if (!ModelState.IsValid) return View(DepartmentViewModel);
-            _departmentAppService.Register(DepartmentViewModel);
+            if (!ModelState.IsValid) return View(model);
+
+            var g = _departmentGroupAppService.FindById(model.DepartmentGroupId);
+            model.DepartmentGroup = g;
+            _departmentAppService.Register(model);
 
             if (IsValidOperation())
                 ViewBag.Sucesso = "Department Registered!";
 
-            return View(DepartmentViewModel);
+            model.DepartmentGroup = g;
+
+            return View(model);
         }
 
         [HttpGet]
@@ -224,7 +227,7 @@ namespace LodgerPms.UI.Site.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        [Route("Department-management/Department-details/{id:guid}")]
+        [Route("Department-management/Department-group-details/{id:guid}")]
         public IActionResult GroupDetails(string id = null)
         {
             if (id == null)

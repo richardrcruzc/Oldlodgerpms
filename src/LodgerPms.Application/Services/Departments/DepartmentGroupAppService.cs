@@ -5,6 +5,7 @@ using LodgerPms.Application.ViewModels.Deparments;
 using LodgerPms.Domain.Core.Bus;
 using LodgerPms.Domain.Departments.Commands;
 using LodgerPms.Domain.Departments.Interfaces;
+using LodgerPms.Domain.Departments.Models;
 using LodgerPms.EventStoreSqlDataLayer.Repository.EventSourcing;
 using System;
 using System.Collections.Generic; 
@@ -36,6 +37,11 @@ namespace LodgerPms.Application.Services.Departments
         public DepartmentGroupViewModel GetById(string id)
         {
             return _mapper.Map<DepartmentGroupViewModel>(_departmentGrRepository.GetById(id));
+
+        }
+        public DepartmentGroup FindById(string id)
+        {
+            return _departmentGrRepository.GetById(id);
 
         }
         public void Register(DepartmentGroupViewModel DepartmentGroupViewModel)

@@ -13,13 +13,12 @@ namespace LodgerPms.Domain.Departments.Models
             AssertionConcern.AssertArgumentNotNull(description, "The Department description must be provided.");
             AssertionConcern.AssertArgumentLength(description, 100, "The Department description maximum is 100 characters.");
             var obj = new Department {Id=id,
-                                            DepartmentType = departmentType,
-                                            DepartmentGroup = departmentGroup,
-                DepartmentGroupId = departmentGroup.Id,
-                Description = description ,
-                                            ApplyTax = applyTax,
-                                            Amount= amount,
-                                            Percentage = percentage
+                                        DepartmentType = departmentType,
+                                        DepartmentGroup = departmentGroup,
+                                        Description = description ,
+                                        ApplyTax = applyTax,
+                                        Amount= amount,
+                                        Percentage = percentage
             };
             return obj;
         }
@@ -35,7 +34,7 @@ namespace LodgerPms.Domain.Departments.Models
          
             public Package Package { get; private set; }
             public DepartmentGroup DepartmentGroup { get; private set; }
-        public string DepartmentGroupId { get; private set; }
+         
         public DepartmentType DepartmentType { get; private set; }
             public bool ApplyTax { get; private set; }
             public decimal Amount { get; private set; }

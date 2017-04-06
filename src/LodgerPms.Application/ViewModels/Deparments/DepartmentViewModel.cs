@@ -12,6 +12,7 @@ namespace LodgerPms.Application.ViewModels.Deparments
         [Key]
         public string Id { get; set; }
         public Package Package { get;  set; }
+        public string DepartmentGroupId { get; set; }
         public DepartmentGroup DepartmentGroup { get;  set; }
         public List<SelectListItem> DepartmentGroups { get; set; }
         public DepartmentType DepartmentType { get;  set; }
