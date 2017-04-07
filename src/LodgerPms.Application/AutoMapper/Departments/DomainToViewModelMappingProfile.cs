@@ -11,6 +11,7 @@ namespace LodgerPms.Application.AutoMapper.Departments
         {
             CreateMap<Department, DepartmentViewModel>();
             CreateMap<DepartmentGroup, DepartmentGroupViewModel>();
+            CreateMap<FolioPattern, FolioPatternViewModel>();
         }
     }
 }

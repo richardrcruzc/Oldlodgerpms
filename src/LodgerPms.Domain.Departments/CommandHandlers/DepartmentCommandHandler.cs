@@ -89,7 +89,7 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 return;
             }
             var department = _departmentRepository.GetById(message.Id);
-          //  _departmentRepository.Delete(department);
+           _departmentRepository.Remove(department.Id);
 
             if (Commit())
             {

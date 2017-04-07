@@ -114,7 +114,15 @@ namespace LodgerPms.UI.Site.Controllers
             if (IsValidOperation())
                 ViewBag.Sucesso = "Department Registered!";
 
-            model.DepartmentGroup = g;
+            var groups = _departmentGroupAppService.GetAll()
+               .Select(x => new SelectListItem
+               {
+                   Value = x.Id,
+                   Text = x.Description
+               }).ToList();
+
+
+            model.DepartmentGroups = groups;
 
             return View(model);
         }
@@ -135,7 +143,13 @@ namespace LodgerPms.UI.Site.Controllers
             {
                 return NotFound();
             }
-
+            var groups = _departmentGroupAppService.GetAll()
+             .Select(x => new SelectListItem
+             {
+                 Value = x.Id,
+                 Text = x.Description
+             }).ToList();
+            DepartmentViewModel.DepartmentGroups = groups;
             return View(DepartmentViewModel);
         }
 
@@ -151,6 +165,14 @@ namespace LodgerPms.UI.Site.Controllers
 
             if (IsValidOperation())
                 ViewBag.Sucesso = "Department Updated!";
+
+            var groups = _departmentGroupAppService.GetAll()
+            .Select(x => new SelectListItem
+            {
+                Value = x.Id,
+                Text = x.Description
+            }).ToList();
+            DepartmentViewModel.DepartmentGroups = groups;
 
             return View(DepartmentViewModel);
         }
@@ -200,153 +222,6 @@ namespace LodgerPms.UI.Site.Controllers
 
         #endregion
 
-        #region Department Group
-
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("Department-group-management/list-all")]
-        public IActionResult GroupList()
-        {
-            return View(_departmentAppService.GetAll());
-        }
-        [HttpPost]
-        [AllowAnonymous]
-        [Route("Department-group-management/list-all")]
-        public IActionResult GroupList(string searchString)
-        {
-            var departments = _departmentAppService.GetAll();
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                departments = departments.Where(d => d.Description.Contains(searchString));
-            }
-
-            return View(departments.ToList());
-        }
-
-
-        [HttpGet]
-        [AllowAnonymous]
-        [Route("Department-management/Department-group-details/{id:guid}")]
-        public IActionResult GroupDetails(string id = null)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var DepartmentViewModel = _departmentAppService.GetById(id);
-
-            if (DepartmentViewModel == null)
-            {
-                return NotFound();
-            }
-
-            return View(DepartmentViewModel);
-        }
-
-        [HttpGet]
-        [Authorize(Policy = "CanWriteDepartmentData")]
-        [Route("Department-management/group-register-new")]
-        public IActionResult GroupCreate()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [Authorize(Policy = "CanWriteDepartmentData")]
-        [Route("Department-management/group-register-new")]
-        [ValidateAntiForgeryToken]
-        public IActionResult GroupCreate(DepartmentViewModel DepartmentViewModel)
-        {
-            if (!ModelState.IsValid) return View(DepartmentViewModel);
-            _departmentAppService.Register(DepartmentViewModel);
-
-            if (IsValidOperation())
-                ViewBag.Sucesso = "Department Registered!";
-
-            return View(DepartmentViewModel);
-        }
-
-        [HttpGet]
-        [Authorize(Policy = "CanWriteDepartmentData")]
-        [Route("Department-management/group-edit-Department/{id:guid}")]
-        public IActionResult GroupEdit(string id = null)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var DepartmentViewModel = _departmentAppService.GetById(id);
-
-            if (DepartmentViewModel == null)
-            {
-                return NotFound();
-            }
-
-            return View(DepartmentViewModel);
-        }
-
-        [HttpPost]
-        [Authorize(Policy = "CanWriteDepartmentData")]
-        [Route("Department-management/group-edit-Department/{id:guid}")]
-        [ValidateAntiForgeryToken]
-        public IActionResult GroupEdit(DepartmentViewModel DepartmentViewModel)
-        {
-            if (!ModelState.IsValid) return View(DepartmentViewModel);
-
-            _departmentAppService.Update(DepartmentViewModel);
-
-            if (IsValidOperation())
-                ViewBag.Sucesso = "Department Updated!";
-
-            return View(DepartmentViewModel);
-        }
-
-        [HttpGet]
-        [Authorize(Policy = "CanRemoveDepartmentData")]
-        [Route("Department-management/group-remove-Department/{id:guid}")]
-        public IActionResult GroupDelete(string id = null)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var DepartmentViewModel = _departmentAppService.GetById(id);
-
-            if (DepartmentViewModel == null)
-            {
-                return NotFound();
-            }
-
-            return View(DepartmentViewModel);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [Authorize(Policy = "CanRemoveDepartmentData")]
-        [Route("Department-management/group-remove-Department/{id:guid}")]
-        [ValidateAntiForgeryToken]
-        public IActionResult GroupDeleteConfirmed(string id = null)
-        {
-            _departmentAppService.Remove(id);
-
-            if (!IsValidOperation()) return View(_departmentAppService.GetById(id));
-
-            ViewBag.Sucesso = "Department Removed!";
-            return RedirectToAction("Index");
-        }
-
-        [AllowAnonymous]
-        [Route("Department-management/group-Department-history/{id:guid}")]
-        public JsonResult GroupHistory(string id = null)
-        {
-            var DepartmentHistoryData = _departmentAppService.GetAllHistory(id);
-            return Json(DepartmentHistoryData);
-        }
-
-
-        #endregion
+       
     }
 }

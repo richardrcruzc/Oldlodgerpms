@@ -9,9 +9,10 @@ using LodgerPms.Domain.Departments.Models;
 namespace LodgerPms.DepartmentsDataLayer.Migrations
 {
     [DbContext(typeof(DepartmentsContext))]
-    partial class DepartmentsContextModelSnapshot : ModelSnapshot
+    [Migration("20170406180936_code1")]
+    partial class code1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

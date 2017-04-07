@@ -8,18 +8,19 @@ using LodgerPms.Domain.Departments.Interfaces;
 using LodgerPms.Domain.Departments.Models;
 using LodgerPms.EventStoreSqlDataLayer.Repository.EventSourcing;
 using System;
-using System.Collections.Generic;
+using System.Collections.Generic; 
 
 namespace LodgerPms.Application.Services.Departments
 {
-    public class DepartmentGroupAppService : IDepartmentGroupAppService
+    public class FolioPatternAppService: IFolioPatternAppService
     {
         private readonly IMapper _mapper;
-        private readonly IDepartmentGroupRepository _departmentGrRepository;
+        private readonly IFolioPatternRepository _departmentGrRepository;
         private readonly IEventStoreRepository _eventStoreRepository;
         private readonly IBus Bus;
 
-        public DepartmentGroupAppService(IMapper mapper, IDepartmentGroupRepository departmentRepository,
+        public FolioPatternAppService(IMapper mapper, 
+            IFolioPatternRepository departmentRepository, 
             IEventStoreRepository eventStoreRepository, IBus bus)
         {
 
@@ -29,49 +30,49 @@ namespace LodgerPms.Application.Services.Departments
             this.Bus = bus;
 
         }
-        public IEnumerable<DepartmentGroupViewModel> GetAll()
+        public IEnumerable<FolioPatternViewModel> GetAll()
         {
-            return _mapper.Map<IEnumerable<DepartmentGroupViewModel>>(_departmentGrRepository.GetAll());
+            return _mapper.Map<IEnumerable<FolioPatternViewModel>>(_departmentGrRepository.GetAll());
 
         }
-        public DepartmentGroupViewModel GetById(string id)
+        public FolioPatternViewModel GetById(string id)
         {
-            return _mapper.Map<DepartmentGroupViewModel>(_departmentGrRepository.GetById(id));
+            return _mapper.Map<FolioPatternViewModel>(_departmentGrRepository.GetById(id));
 
         }
-        public DepartmentGroup FindById(string id)
+        public FolioPattern FindById(string id)
         {
             return _departmentGrRepository.GetById(id);
 
         }
-        public void Register(DepartmentGroupViewModel DepartmentGroupViewModel)
+        public void Register(FolioPatternViewModel FolioPatternViewModel)
         {
-            var registerCommand = _mapper.Map<RegisterNewDepartmentGroupCommand>(DepartmentGroupViewModel);
+            var registerCommand = _mapper.Map<RegisterNewFolioPatternCommand>(FolioPatternViewModel);
             Bus.SendCommand(registerCommand);
 
         }
 
 
-        public void Update(DepartmentGroupViewModel DepartmentGroupViewModel)
+        public void Update(FolioPatternViewModel FolioPatternViewModel)
         {
-            var updateCommand = _mapper.Map<UpdateDepartmentGroupCommand>(DepartmentGroupViewModel);
+            var updateCommand = _mapper.Map<UpdateFolioPatternCommand>(FolioPatternViewModel);
             Bus.SendCommand(updateCommand);
 
         }
         public void Remove(string id)
         {
-            var removeCommand = new RemoveDepartmentGroupCommand(id);
+            var removeCommand = new RemoveFolioPatternCommand(id);
             Bus.SendCommand(removeCommand);
 
         }
-        public IList<DepartmentGroupHistoryData> GetAllHistory(string id)
-        {
-            return DepartmentGroupHistory.ToJavaScriptDepartmentHistory(_eventStoreRepository.All(id));
-        }
+        //public IList<FolioPatternHistoryData> GetAllHistory(string id)
+        //{
+        //    return FolioPatternHistory.ToJavaScriptDepartmentHistory(_eventStoreRepository.All(id));
+        //}
         public void Dispose()
         {
             GC.SuppressFinalize(this);
         }
-
+         
     }
 }

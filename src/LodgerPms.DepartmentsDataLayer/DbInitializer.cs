@@ -11,19 +11,19 @@ namespace LodgerPms.DepartmentsDataLayer
         {
             if (!cntxt.DepartmentGroups.Any())
             {
-                var dg = DepartmentGroup.Create("MIS","M","Miscellaneous");
+                var dg = DepartmentGroup.Create("MIS", "Miscellaneous");
                 cntxt.DepartmentGroups.Add(dg);
-                dg = DepartmentGroup.Create("LAU", "L","Laundry");
+                dg = DepartmentGroup.Create("LAU", "Laundry");
                 cntxt.DepartmentGroups.Add(dg); 
-                dg = DepartmentGroup.Create("ROR","R", "Room Revenue");
+                dg = DepartmentGroup.Create("ROR"  ,"Room Revenue");
                 cntxt.DepartmentGroups.Add(dg);
-                dg = DepartmentGroup.Create("F&B","F", "Food & Beverage");
+                dg = DepartmentGroup.Create("F&B", "Food & Beverage");
                 cntxt.DepartmentGroups.Add(dg);
-                dg = DepartmentGroup.Create("SAF", "O", "SAF Group");
+                dg = DepartmentGroup.Create("SAF", "SAF Group");
                 cntxt.DepartmentGroups.Add(dg);
-                dg = DepartmentGroup.Create("ADJ", "M", "Adjustment (+)");
+                dg = DepartmentGroup.Create("ADJ", "Adjustment (+)");
                 cntxt.DepartmentGroups.Add(dg);
-                dg = DepartmentGroup.Create("TAX", "R", "Taxes	");
+                dg = DepartmentGroup.Create("TAX",  "Taxes	");
                 cntxt.DepartmentGroups.Add(dg);
                 cntxt.SaveChanges();
             }

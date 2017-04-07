@@ -22,6 +22,11 @@ namespace LodgerPms.Application.AutoMapper.Departments
                 .ConstructUsing(d => new UpdateDepartmentGroupCommand(d.Id, d.Code,  d.Description));
 
 
+            CreateMap<FolioPatternViewModel, RegisterNewFolioPatternCommand>()
+           .ConstructUsing(d => new RegisterNewFolioPatternCommand(d.Code, d.Description));
+            CreateMap<FolioPatternViewModel, UpdateFolioPatternCommand>()
+                .ConstructUsing(d => new UpdateFolioPatternCommand(d.Id, d.Code, d.Description));
+
         }
     }
 }

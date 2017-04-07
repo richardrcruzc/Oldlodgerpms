@@ -3,17 +3,17 @@ using LodgerPms.Domain.Departments.Events;
 
 namespace LodgerPms.Domain.Departments.EventHandlers
 {
-    public class DepartmentGroupEventHandler :
-        IHandler<DepartmentGroupRegisteredEvent>,
-        IHandler<DepartmentGroupUpdatedEvent>,
+    public class FolioPatternEventHandler :
+        IHandler<FolioPatternRegisteredEvent>,
+        IHandler<FolioPatternUpdatedEvent>,
         IHandler<FolioPatternRemovedEvent>
     {
-        public void Handle(DepartmentGroupUpdatedEvent message)
+        public void Handle(FolioPatternUpdatedEvent message)
         {
             // Send some notification e-mail
         }
 
-        public void Handle(DepartmentGroupRegisteredEvent message)
+        public void Handle(FolioPatternRegisteredEvent message)
         {
             // Send some greetings e-mail
         }

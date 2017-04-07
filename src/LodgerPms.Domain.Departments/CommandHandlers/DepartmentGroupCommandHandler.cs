@@ -38,7 +38,7 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 return;
             }
 
-            var department = DepartmentGroup.Create(message.Id,message.Code, message.Description);
+            var department = DepartmentGroup.Create(message.Code, message.Description);
 
             if (_departmentRepository.GetByDescription(department.Description) != null)
             {
@@ -62,7 +62,7 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 return;
             }
 
-            var department = DepartmentGroup.Create(message.Id, message.Code,  message.Description);
+            var department = DepartmentGroup.Create( message.Code,  message.Description);
             var existingDepartment = _departmentRepository.GetByDescription(department.Description);
 
             if (existingDepartment != null)
@@ -90,7 +90,7 @@ namespace LodgerPms.Domain.Departments.CommandHandlers
                 return;
             }
             var department = _departmentRepository.GetById(message.Id);
-          //  _departmentRepository.Delete(department);
+            _departmentRepository.Remove(department.Id);
 
             if (Commit())
             {

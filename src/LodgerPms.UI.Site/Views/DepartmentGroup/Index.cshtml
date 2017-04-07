@@ -1,9 +1,9 @@
-@model LodgerPms.UI.Site.ViewModel.DepartmentListModel
+@model IEnumerable<LodgerPms.Application.ViewModels.Deparments.DepartmentGroupViewModel>
 
 @{
-    ViewData["Title"] = "Department Management";
+    ViewData["Title"] = "Department Group Management";
 
-    var modelT = Model.Departments;
+   
 }
 
 <div>
@@ -21,11 +21,7 @@
             </div>
             <div class="pull-right">
 
-                <form asp-controller="Department" asp-action="Index" method="post">
-                    <p>
-                        Type: <input name="DepartmentType" value="false" type="radio" />Debit
-                        <input name="DepartmentType" value="false" type="radio" />Credit
-                    </p>
+                <form asp-controller="Department" asp-action="Index" method="post">                   
                     <p>
                         <input type="text" name="SearchString" placeholder="Description">
                         <input type="submit" value="Filter" class="btn btn-default"/>
@@ -42,48 +38,28 @@
         <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Departments[0].DepartmentType)
+                @Html.DisplayNameFor(model => model.Code)
             </th>
+            
             <th>
-                @Html.DisplayNameFor(model => model.Departments[0].DepartmentGroup.Description)
+                @Html.DisplayNameFor(model => model.Description)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Departments[0].Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Departments[0].ApplyTax)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Departments[0].Amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Departments[0].Percentage)
-            </th>
+            
             <th></th>
         </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model.Departments)
+        @foreach (var item in Model)
         {
             <tr>
+                
                 <td>
-                    @Html.DisplayFor(modelItem => item.DepartmentType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DepartmentGroup.Description)
+                    @Html.DisplayFor(modelItem => item.Code)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplyTax)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Percentage)
-                </td>
+                
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id" title="Edit" class="btn btn-warning">
                         <span class="glyphicon glyphicon-pencil"></span>
@@ -112,7 +88,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Department Data History</h4>
+                <h4 class="modal-title">Department Group Data History</h4>
             </div>
             <div class="modal-body">
                 <p id="DepartmentHistoryData"></p>

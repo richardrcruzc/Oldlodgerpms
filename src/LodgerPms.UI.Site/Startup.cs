@@ -73,6 +73,9 @@ namespace LodgerPms.UI.Site
             {
                 options.AddPolicy("CanWriteDepartmentData", policy => policy.Requirements.Add(new ClaimRequirement("Departments", "Write")));
                 options.AddPolicy("CanRemoveDepartmentData", policy => policy.Requirements.Add(new ClaimRequirement("Departments", "Remove")));
+                options.AddPolicy("CanWriteFolioPatternData", policy => policy.Requirements.Add(new ClaimRequirement("FolioPatterns", "Write")));
+                options.AddPolicy("CanRemoveFolioPatternData", policy => policy.Requirements.Add(new ClaimRequirement("FolioPatterns", "Remove")));
+
             });
 
             // .NET Native DI Abstraction

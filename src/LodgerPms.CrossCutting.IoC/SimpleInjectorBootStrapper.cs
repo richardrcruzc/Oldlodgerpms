@@ -12,6 +12,7 @@ using LodgerPms.Domain.Departments.Commands;
 using LodgerPms.Domain.Departments.EventHandlers;
 using LodgerPms.Domain.Departments.Events;
 using LodgerPms.Domain.Departments.Interfaces;
+using LodgerPms.Domain.folioPatterns.CommandHandlers;
 using LodgerPms.Domain.Interface.Interfaces;
 using LodgerPms.EventStoreSqlDataLayer.Context;
 using LodgerPms.EventStoreSqlDataLayer.EventSourcing;
@@ -40,6 +41,7 @@ namespace LodgerPms.Infra.CrossCutting.IoC
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
             services.AddScoped<IDeparmentAppService, DepartmentAppService>();
             services.AddScoped<IDepartmentGroupAppService, DepartmentGroupAppService>();
+            services.AddScoped<IFolioPatternAppService, FolioPatternAppService>();
 
             // Domain - Events
             services.AddScoped<IDomainNotificationHandler<DomainNotification>, DomainNotificationHandler>();
@@ -49,9 +51,8 @@ namespace LodgerPms.Infra.CrossCutting.IoC
 
             services.AddScoped<IHandler<DepartmentGroupRegisteredEvent>, DepartmentGroupEventHandler>();
             services.AddScoped<IHandler<DepartmentGroupUpdatedEvent>, DepartmentGroupEventHandler>();
-            services.AddScoped<IHandler<DepartmentGroupRemovedEvent>, DepartmentGroupEventHandler>();
-
-
+            services.AddScoped<IHandler<FolioPatternRemovedEvent>, DepartmentGroupEventHandler>();
+              
 
             // Domain - Commands
             //department
@@ -64,10 +65,16 @@ namespace LodgerPms.Infra.CrossCutting.IoC
             services.AddScoped<IHandler<UpdateDepartmentGroupCommand>, DepartmentGroupCommandHandler>();
             services.AddScoped<IHandler<RemoveDepartmentGroupCommand>, DepartmentGroupCommandHandler>();
 
+            //Folio Pattern
+            services.AddScoped<IHandler<RegisterNewFolioPatternCommand>, FolioPatternCommandHandler>();
+            services.AddScoped<IHandler<UpdateFolioPatternCommand>, FolioPatternCommandHandler>();
+            services.AddScoped<IHandler<RemoveFolioPatternCommand>, FolioPatternCommandHandler>();
+
 
             //repository
             services.AddScoped<IDepartmentRepository, DepartmentRepository>();
             services.AddScoped<IDepartmentGroupRepository, DepartmentGroupRepository>();
+            services.AddScoped<IFolioPatternRepository, FolioPatternRepository>();            
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<DepartmentsContext>();
 
