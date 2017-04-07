@@ -51,7 +51,7 @@ namespace LodgerPms.Domain.folioPatterns.CommandHandlers
 
             if (Commit())
             {
-                //Bus.RaiseEvent(new FolioPatternRegisteredEvent(folioPattern.Code, folioPattern.Description ));
+                Bus.RaiseEvent(new FolioPatternRegisteredEvent(folioPattern.Code, folioPattern.Description ));
             }
         }
 

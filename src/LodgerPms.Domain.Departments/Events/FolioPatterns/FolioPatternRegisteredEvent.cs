@@ -13,7 +13,7 @@ namespace LodgerPms.Domain.Departments.Events
             Code = code;
             Description = description;
         }
-        public string Id { get; set; }
+      //  public string Id { get; set; }
         
         public string Code { get; private set; }
         

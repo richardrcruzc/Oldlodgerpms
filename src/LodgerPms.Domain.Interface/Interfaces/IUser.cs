@@ -4,6 +4,7 @@
 //using System.Security.Claims;
 //using System.Threading.Tasks;
 
+
 //namespace LodgerPms.Domain.Interface.Interfaces
 //{
 //    public interface IUser

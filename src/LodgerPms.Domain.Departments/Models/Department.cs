@@ -10,8 +10,14 @@ namespace LodgerPms.Domain.Departments.Models
     {
         public static Department Create(string id, DepartmentGroup departmentGroup, DepartmentType departmentType, string description, bool applyTax, decimal amount, decimal percentage)
         {
+
+            AssertionConcern.AssertArgumentNotNull(departmentGroup, "The Department departmentGroup must be provided.");
+
+            AssertionConcern.AssertArgumentNotNull(departmentType, "The Department departmentType must be provided.");
+
             AssertionConcern.AssertArgumentNotNull(description, "The Department description must be provided.");
             AssertionConcern.AssertArgumentLength(description, 100, "The Department description maximum is 100 characters.");
+
             var obj = new Department {Id=id,
                                         DepartmentType = departmentType,
                                         DepartmentGroup = departmentGroup,

@@ -9,11 +9,56 @@ namespace LodgerPms.Domain.Departments.Models
 
 public class Package : Identity
 {
-    public static Package Create(string description)
-    {
-        AssertionConcern.AssertArgumentNotNull(description, "The Package description must be provided.");
-        AssertionConcern.AssertArgumentLength(description, 100, "The Package description maximum is 100 characters.");
-        var obj = new Package { Description = description };
+    public static Package Create(
+        string  code, 
+        string shortDescription,
+        string foresCastGroup,
+        string description,
+        bool taxAverageCode,
+        string averageCode,
+        string alternate,
+        bool allowance,
+        string profitCode,
+        string lossCode,
+       RateAttribute attributes,
+       bool sellSeparate,
+       string itemInventory,
+       PostinFrecuency postingFrecuency,
+     string formula,    
+     string validFrom,
+     string validTo,
+     string calculateRule)
+        {
+
+            AssertionConcern.AssertArgumentNotNull(code, "The Package code must be provided.");
+            AssertionConcern.AssertArgumentLength(code, 10, "The Package code maximum is 10 characters.");
+
+            AssertionConcern.AssertArgumentNotNull(shortDescription, "The Package shortDescription must be provided.");
+            AssertionConcern.AssertArgumentLength(shortDescription, 100, "The Package shortDescription maximum is 100 characters.");
+
+            AssertionConcern.AssertArgumentNotNull(description, "The Package description must be provided.");
+            AssertionConcern.AssertArgumentLength(description, 500, "The Package description maximum is 500 characters.");
+           
+
+            var obj = new Package {Code=  code,
+            ShortDescription= shortDescription,
+            ForesCastGroup= foresCastGroup,
+            Description= description,
+            TaxAverageCode= taxAverageCode,
+            AverageCode= averageCode,
+            Alternate= alternate,
+            Allowance= allowance,
+            ProfitCode= profitCode,
+            LossCode = lossCode,
+            Attributes= attributes,
+            SellSeparate= sellSeparate,
+            ItemInventory =itemInventory,
+            PostingFrecuency = postingFrecuency,
+            Formula =formula,
+            ValidFrom= validFrom,
+            ValidTo= validTo,
+            CalculateRule= calculateRule
+        };
         return obj;
     }
 
@@ -27,22 +72,27 @@ public class Package : Identity
 
         #endregion
 
-        public string Code { get; private set; } // to enter the short code for the package element or group
+        public string Code { get; private set; }
+        // to enter the short code for the package element or group
         public string ShortDescription { get; private set; }
         public string Description { get; private set; }
-        public string ForesCastGroup { get; private set; }//allows making the element part of a package group.
-
-
-        public bool TaxAverageCode { get; private set; }/*deducts the tax amount from the amount of the package
+        public string ForesCastGroup { get; private set; }
+        //allows making the element part of a package group.
+        public bool TaxAverageCode { get; private set; }
+        /*deducts the tax amount from the amount of the package
 element. */
-        public string AverageCode { get; private set; } //is the transaction code for the allowance on the package ledger.
-        public decimal Average { get; private set; }/*is the transaction code that any overage to the allowance posts.
+        public string AverageCode { get; private set; } 
+        //is the transaction code for the allowance on the package ledger.
+        public decimal Average { get; private set; }
+        /*is the transaction code that any overage to the allowance posts.
 If the amount consumed exceeds the allowed package allowance, the
 excess amount posts on the guest folio using this transaction code. */
-        public bool TaxAverage { get; private set; }/*deducts the tax amount from the amount of the package
+        public bool TaxAverage { get; private set; }
+        /*deducts the tax amount from the amount of the package
 element. */
 
-        public string Alternate { get; private set; }/* includes any transaction codes allowed on this package. For
+        public string Alternate { get; private set; }
+        /* includes any transaction codes allowed on this package. For
 example, although we expect a guest to have breakfast in the café, they
 may order room service instead and still have that amount allowed on their
 package. You may also need to include taxes, gratuities, and beverages for
@@ -67,7 +117,7 @@ reports.*/
 
         public PostinFrecuency PostingFrecuency { get; private set; }
         public string Formula { get; private set; }
-        public string CalcualtionRule { get; private set; }
+        public string CalculationRule { get; private set; }
         public string ValidFrom { get; private set; }
         public string ValidTo { get; private set; }
 
