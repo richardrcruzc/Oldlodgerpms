@@ -1,0 +1,121 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="wwwroot\css\site.css" />
+    <Content Include="wwwroot\css\site.min.css" />
+    <Content Include="wwwroot\favicon.ico" />
+    <Content Include="wwwroot\fonts\Montserrat-Bold.eot" />
+    <Content Include="wwwroot\fonts\Montserrat-Bold.svg" />
+    <Content Include="wwwroot\fonts\Montserrat-Bold.ttf" />
+    <Content Include="wwwroot\fonts\Montserrat-Bold.woff" />
+    <Content Include="wwwroot\fonts\Montserrat-Bold.woff2" />
+    <Content Include="wwwroot\fonts\Montserrat-Regular.eot" />
+    <Content Include="wwwroot\fonts\Montserrat-Regular.svg" />
+    <Content Include="wwwroot\fonts\Montserrat-Regular.ttf" />
+    <Content Include="wwwroot\fonts\Montserrat-Regular.woff" />
+    <Content Include="wwwroot\fonts\Montserrat-Regular.woff2" />
+    <Content Include="wwwroot\icon.jpg" />
+    <Content Include="wwwroot\icon.png" />
+    <Content Include="wwwroot\images\arrow-down.png" />
+    <Content Include="wwwroot\images\arrow-right.svg" />
+    <Content Include="wwwroot\images\banner1.svg" />
+    <Content Include="wwwroot\images\banner2.svg" />
+    <Content Include="wwwroot\images\banner3.svg" />
+    <Content Include="wwwroot\images\banner4.svg" />
+    <Content Include="wwwroot\images\brand.PNG" />
+    <Content Include="wwwroot\images\brand_dark.PNG" />
+    <Content Include="wwwroot\images\cart.png" />
+    <Content Include="wwwroot\images\logout.PNG" />
+    <Content Include="wwwroot\images\main_banner.png" />
+    <Content Include="wwwroot\images\main_banner_text.png" />
+    <Content Include="wwwroot\images\main_banner_text.svg" />
+    <Content Include="wwwroot\images\my_orders.PNG" />
+    <Content Include="wwwroot\images\refresh.svg" />
+    <Content Include="wwwroot\js\site.js" />
+    <Content Include="wwwroot\js\site.min.js" />
+    <Content Include="wwwroot\lib\bootstrap\.bower.json" />
+    <Content Include="wwwroot\lib\bootstrap\css\bootstrap.css" />
+    <Content Include="wwwroot\lib\bootstrap\css\bootstrap.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\css\bootstrap.min.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\lib\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="wwwroot\lib\bootstrap\dist\js\npm.js" />
+    <Content Include="wwwroot\lib\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="wwwroot\lib\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="wwwroot\lib\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="wwwroot\lib\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="wwwroot\lib\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="wwwroot\lib\bootstrap\js\bootstrap.js" />
+    <Content Include="wwwroot\lib\bootstrap\js\bootstrap.min.js" />
+    <Content Include="wwwroot\lib\bootstrap\LICENSE" />
+    <Content Include="wwwroot\lib\jquery-validation-unobtrusive\.bower.json" />
+    <Content Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="wwwroot\lib\jquery-validation\.bower.json" />
+    <Content Include="wwwroot\lib\jquery-validation\dist\additional-methods.js" />
+    <Content Include="wwwroot\lib\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="wwwroot\lib\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="wwwroot\lib\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="wwwroot\lib\jquery-validation\LICENSE.md" />
+    <Content Include="wwwroot\lib\jquery\.bower.json" />
+    <Content Include="wwwroot\lib\jquery\dist\jquery.js" />
+    <Content Include="wwwroot\lib\jquery\dist\jquery.min.js" />
+    <Content Include="wwwroot\lib\jquery\dist\jquery.min.map" />
+    <Content Include="wwwroot\lib\jquery\jquery.js" />
+    <Content Include="wwwroot\lib\jquery\jquery.min.js" />
+    <Content Include="wwwroot\lib\jquery\jquery.min.map" />
+    <Content Include="wwwroot\lib\jquery\LICENSE.txt" />
+    <Content Include="wwwroot\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4.AspNetIdentity" Version="1.0.0" />
+    <PackageReference Include="IdentityServer4.EntityFramework" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Routing" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink.Loader" Version="14.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BuildingBlocks\HealthChecks\src\Microsoft.AspNetCore.HealthChecks\Microsoft.AspNetCore.HealthChecks.csproj" />
+    <ProjectReference Include="..\BuildingBlocks\HealthChecks\src\Microsoft.Extensions.HealthChecks.Data\Microsoft.Extensions.HealthChecks.Data.csproj" />
+    <ProjectReference Include="..\BuildingBlocks\HealthChecks\src\Microsoft.Extensions.HealthChecks\Microsoft.Extensions.HealthChecks.csproj" />
+  </ItemGroup>
+
+</Project>

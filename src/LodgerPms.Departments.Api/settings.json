@@ -1,0 +1,12 @@
+﻿{
+  "ConnectionString": "Server=tcp:127.0.0.1,5433;Initial Catalog=LodgerPms.Departments.Services.DepartmentDb;User Id=sa;Password=Pass@word",
+  "ExternalDepartmentBaseUrl": "http://localhost:5101",
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  }
+}

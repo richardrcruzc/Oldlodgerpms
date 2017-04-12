@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  lodgerpms.departments.api:
+    image: lodgerpms.departments.api
+    build:
+      context: ./src/LodgerPms.Departments.Api
+      dockerfile: Dockerfile
+
+  lodgerpms.domain:
+    image: lodgerpms.domain
+    build:
+      context: ./src/LodgerPms.Domain
+      dockerfile: Dockerfile
+
+  lodgerpms.webmvc:
+    image: lodgerpms.webmvc
+    build:
+      context: ./src/LodgerPms.WebMVC
+      dockerfile: Dockerfile
+
+  lodgerpms.indentity.api:
+    image: lodgerpms.indentity.api
+    build:
+      context: ./src/LodgerPms.Indentity.Api
+      dockerfile: Dockerfile
