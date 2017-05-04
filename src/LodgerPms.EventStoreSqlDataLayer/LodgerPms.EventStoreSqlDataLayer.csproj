@@ -12,8 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LodgerPms.Domain.Core\LodgerPms.Domain.Core.csproj" />
-    <ProjectReference Include="..\LodgerPms.Domain.Departments\LodgerPms.Domain.Departments.csproj" />
     <ProjectReference Include="..\LodgerPms.Infra.CrossCutting.Identity\LodgerPms.Infra.CrossCutting.Identity.csproj" />
   </ItemGroup>
 

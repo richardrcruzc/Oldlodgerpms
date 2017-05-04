@@ -6,13 +6,16 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.HealthChecks;
-using Microsoft.AspNetCore.Http;
-using LodgerPms.WebMVC.Services.Departments;
-using Microsoft.eShopOnContainers.BuildingBlocks.Resilience.Http;
-using LodgerPms.WebMVC.Infrastructure;
+using Microsoft.Extensions.Logging; 
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Http;
+using System.Threading;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.HealthChecks;
+using Microsoft.eShopOnContainers.BuildingBlocks.Resilience.Http;
+using LodgerPms.WebMVC.Services.Departments;
+using LodgerPms.WebMVC.Infrastructure;
 
 namespace LodgerPms.WebMVC
 {

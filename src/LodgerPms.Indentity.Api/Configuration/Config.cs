@@ -86,13 +86,13 @@ namespace LodgerPms.Indentity.Api.Configuration
                     {
                         $"{clientsUrl["Mvc"]}/signin-oidc",
                         "http://104.40.62.65:5100/signin-oidc", 
-                        "http://localhost:5100/signin-oidc",
+                        "http://localhost:5200/signin-oidc",
                         "http://13.88.8.119:5100/signin-oidc"
                     },
                     PostLogoutRedirectUris = new List<string>
                     {
                         $"{clientsUrl["Mvc"]}/signout-callback-oidc",
-                        "http://localhost:5100/signout-callback-oidc"
+                        "http://localhost:5200/signout-callback-oidc"
                     },
                     AllowedScopes = new List<string>
                     {

@@ -11,8 +11,4 @@
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\LodgerPms.Domain.Core\LodgerPms.Domain.Core.csproj" />
-  </ItemGroup>
-
 </Project>

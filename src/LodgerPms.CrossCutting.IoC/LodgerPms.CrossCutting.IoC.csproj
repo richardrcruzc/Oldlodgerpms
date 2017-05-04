@@ -12,10 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LodgerPms.Application\LodgerPms.Application.csproj" />
     <ProjectReference Include="..\LodgerPms.DepartmentsDataLayer\LodgerPms.DepartmentsDataLayer.csproj" />
-    <ProjectReference Include="..\LodgerPms.Domain.Core\LodgerPms.Domain.Core.csproj" />
-    <ProjectReference Include="..\LodgerPms.Domain.Departments\LodgerPms.Domain.Departments.csproj" />
     <ProjectReference Include="..\LodgerPms.Infra.CrossCutting.Bus\LodgerPms.Infra.CrossCutting.Bus.csproj" />
     <ProjectReference Include="..\LodgerPms.Infra.CrossCutting.Identity\LodgerPms.Infra.CrossCutting.Identity.csproj" />
   </ItemGroup>
