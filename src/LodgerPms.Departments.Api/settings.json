@@ -1,5 +1,5 @@
 ﻿{
-  "ConnectionString": "Server=tcp:127.0.0.1,5433;Initial Catalog=LodgerPms.Departments.Services.DepartmentDb;User Id=sa;Password=Pass@word",
+  "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=LodgerPms.Departments.Services.DepartmentDb;Trusted_Connection=True;",
   "ExternalDepartmentBaseUrl": "http://localhost:5201",
   "Logging": {
     "IncludeScopes": false,

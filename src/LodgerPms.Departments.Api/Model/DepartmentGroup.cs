@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace LodgerPms.Departments.Api.Model
 {
 
-    public class DepartmentGroup : Entity
+    public class DepartmentGroup : Entity, IAggregateRoot
     {
         public static DepartmentGroup Create(string code,  string description)
         {

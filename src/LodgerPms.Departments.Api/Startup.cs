@@ -1,11 +1,9 @@
 ﻿ 
 namespace LodgerPms.Departments.Api
-{ 
-    using Autofac;
-    using Autofac.Extensions.DependencyInjection;
+{    
     using global::LodgerPms.Departments.Api.IntegrationEvents;
-    using Infrastructure; 
-    using Infrastructure.Filters;
+    using global::LodgerPms.Departments.Api.Infrastructure;
+    using global::LodgerPms.Departments.Api.Infrastructure.Filters;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
@@ -24,9 +22,17 @@ namespace LodgerPms.Departments.Api
     using System.Data.SqlClient;
     using Microsoft.Extensions.Options;
     using Microsoft.EntityFrameworkCore.Infrastructure;
+   using RabbitMQ.Client;
+    using Autofac;
+    using Autofac.Extensions.DependencyInjection;
+    using Microsoft.AspNetCore.Http;
+    using LodgerPms.Departments.Api.Infrastructure.Services;
+    using Microsoft.LodgerPmsContainers.BuildingBlocks.EventBus;
+    using LodgerPms.Departments.Api.Infrastructure.AutofacModules; 
 
     public class Startup
     {
+       
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -45,40 +51,42 @@ namespace LodgerPms.Departments.Api
         }
 
         public IConfigurationRoot Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+ 
+           
+         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-
-            services.AddHealthChecks(checks =>
-            {
-                checks.AddSqlCheck("DepartmentDb", Configuration["ConnectionString"]);
-            });
-
             services.AddMvc(options =>
             {
                 options.Filters.Add(typeof(HttpGlobalExceptionFilter));
-            }).AddControllersAsServices();
+            }).AddControllersAsServices(); //Injecting Controllers themselves thru DI
+                                           //For further info see: http://docs.autofac.org/en/latest/integration/aspnetcore.html#controllers-as-services
 
-            services.AddDbContext<DepartmentContext>(options =>
+            services.AddHealthChecks(checks =>
             {
-                options.UseSqlServer(Configuration["ConnectionString"],
-                                     sqlServerOptionsAction: sqlOptions =>
-                                     {
-                                         sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
-                                         //Configuring Connection Resiliency: https://docs.microsoft.com/en-us/ef/core/miscellaneous/connection-resiliency 
-                                         sqlOptions.EnableRetryOnFailure(maxRetryCount: 5, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
-                                     });
-                // Changing default behavior when client evaluation occurs to throw. 
-                // Default in EF Core would be to log a warning when client evaluation is performed.
-                options.ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.QueryClientEvaluationWarning));
-                //Check Client vs. Server evaluation: https://docs.microsoft.com/en-us/ef/core/querying/client-eval
+                var minutes = 1;
+                if (int.TryParse(Configuration["HealthCheck:Timeout"], out var minutesParsed))
+                {
+                    minutes = minutesParsed;
+                }
+                checks.AddSqlCheck("DepartmentDb", Configuration["ConnectionString"]);
             });
 
-            services.Configure<Settings>(Configuration);
 
-            // Add framework services.
+            services.AddEntityFrameworkSqlServer()
+                               .AddDbContext<DepartmentContext>(options =>
+                               {
+                                   options.UseSqlServer(Configuration["ConnectionString"],
+                                       sqlServerOptionsAction: sqlOptions =>
+                                       {
+                                           sqlOptions.MigrationsAssembly(typeof(Startup).GetTypeInfo().Assembly.GetName().Name);
+                                           sqlOptions.EnableRetryOnFailure(maxRetryCount: 5, maxRetryDelay: TimeSpan.FromSeconds(30), errorNumbersToAdd: null);
+                                       });
+                               },
+                                   ServiceLifetime.Scoped  //Showing explicitly that the DbContext is shared across the HTTP request scope (graph of objects started in the HTTP request)
+                               );
+
+            
             services.AddSwaggerGen();
             services.ConfigureSwaggerGen(options =>
             {
@@ -87,7 +95,7 @@ namespace LodgerPms.Departments.Api
                 {
                     Title = "LodgerPmsContainers - Department HTTP API",
                     Version = "v1",
-                    Description = "The department Microservice HTTP API. This is a Data-Driven/CRUD microservice sample",
+                    Description = "The department Microservice HTTP API. This is a Data-Driven/CRUD",
                     TermsOfService = "Terms Of Service"
                 });
             });
@@ -101,15 +109,48 @@ namespace LodgerPms.Departments.Api
                     .AllowCredentials());
             });
 
+
+            // Add application services.
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IIdentityService, IdentityService>();
             services.AddTransient<Func<DbConnection, IIntegrationEventLogService>>(
                 sp => (DbConnection c) => new IntegrationEventLogService(c));
             var serviceProvider = services.BuildServiceProvider();
-            var configuration = serviceProvider.GetRequiredService<IOptionsSnapshot<Settings>>().Value;
+            var configuration = serviceProvider.GetRequiredService<IOptionsSnapshot<DepartmentSettings>>().Value;
             services.AddTransient<IDepartmentIntegrationEventService, DepartmentIntegrationEventService>();
-            services.AddSingleton<IEventBus>(new EventBusRabbitMQ(configuration.EventBusConnection));
+
+            services.AddSingleton<IRabbitMQPersistentConnection>(sp =>
+            {
+                var logger = sp.GetRequiredService<ILogger<DefaultRabbitMQPersistentConnection>>();
+
+                var factory = new ConnectionFactory()
+                {
+                    HostName = Configuration["EventBusConnection"]
+                };
+
+                return new DefaultRabbitMQPersistentConnection(factory, logger);
+            });
+
+            services.AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager>();
+            services.AddSingleton<IEventBus, EventBusRabbitMQ>();
+
+
+            services.AddOptions();
+
+
+            //configure autofac
+
+            var container = new ContainerBuilder();
+            container.Populate(services);
+
+            container.RegisterModule(new MediatorModule());
+            container.RegisterModule(new ApplicationModule(Configuration["ConnectionString"]));
+
+            return new AutofacServiceProvider(container.Build());
+
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+       
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             //Configure logs
@@ -118,6 +159,8 @@ namespace LodgerPms.Departments.Api
             loggerFactory.AddDebug();
 
             app.UseCors("CorsPolicy");
+
+            ConfigureAuth(app);
 
             app.UseMvcWithDefaultRoute();
 
@@ -128,15 +171,26 @@ namespace LodgerPms.Departments.Api
                         .ApplicationServices.GetService(typeof(DepartmentContext));
 
             WaitForSqlAvailability(context, loggerFactory);
+
             //Seed Data
-            DepartmentContextSeed.SeedAsync(app, loggerFactory)
-            .Wait();
+            DepartmentContextSeed.SeedAsync(app, loggerFactory).Wait();
 
             var integrationEventLogContext = new IntegrationEventLogContext(
                 new DbContextOptionsBuilder<IntegrationEventLogContext>()
                 .UseSqlServer(Configuration["ConnectionString"], b => b.MigrationsAssembly("LodgerPms.Departments.Api"))
                 .Options);
             integrationEventLogContext.Database.Migrate();
+        }
+
+        protected virtual void ConfigureAuth(IApplicationBuilder app)
+        {
+            var identityUrl = Configuration.GetValue<string>("IdentityUrl");
+            app.UseIdentityServerAuthentication(new IdentityServerAuthenticationOptions
+            {                 
+                Authority = identityUrl.ToString(),
+                ScopeName = "Department",
+                RequireHttpsMetadata = false
+            });
         }
 
         private void WaitForSqlAvailability(DepartmentContext ctx, ILoggerFactory loggerFactory, int? retry = 0)

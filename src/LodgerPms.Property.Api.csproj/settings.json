@@ -1,0 +1,12 @@
+﻿{
+  "ConnectionString": "Server=(localdb)\\MSSQLLocalDB;Database=LodgerPms.Departments.Services.PropertyDb;Trusted_Connection=True;",
+  "ExternalDepartmentBaseUrl": "http://localhost:5203",
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  }
+}

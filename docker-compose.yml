@@ -29,3 +29,8 @@ services:
     image: rabbitmq
     ports:
       - "5672:5672"
+  lodgerpms.property.api:
+    image: lodgerpms.property.api
+    build:
+      context: ./src/LodgerPms.Property.Api.csproj
+      dockerfile: Dockerfile

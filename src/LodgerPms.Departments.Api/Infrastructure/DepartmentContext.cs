@@ -3,20 +3,14 @@ namespace LodgerPms.Service.Departments.Api.Infrastructure
 {
     using Microsoft.EntityFrameworkCore.Metadata.Builders;
     using Microsoft.EntityFrameworkCore;
-   
+
     using LodgerPms.Departments.Api.Model;
-    using LodgerPms.Domain.SeedWork;
-    using MediatR;
-    using System.Threading.Tasks;
-    using System.Threading;
-    using LodgerPms.Departments.Api.Infrastructure;
 
     public class DepartmentContext : DbContext
     {
-        private readonly IMediator _mediator;
-        public DepartmentContext(DbContextOptions options, IMediator mediator) : base(options)
-        {
-            _mediator = mediator;
+      
+        public DepartmentContext(DbContextOptions<DepartmentContext> options) : base(options)
+        { 
         }
 
 

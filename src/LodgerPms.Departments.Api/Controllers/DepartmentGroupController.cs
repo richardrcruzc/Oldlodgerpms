@@ -10,16 +10,19 @@ using Microsoft.EntityFrameworkCore;
 using LodgerPms.Departments.Api.Model;
 using LodgerPms.Departments.Api.ViewModel;
 using LodgerPms.Departments.Api.IntegrationEvents.Events;
+using Microsoft.AspNetCore.Authorization;
 
 namespace LodgerPms.Departments.Api.Controllers
 {
+    [Route("api/v1/[controller]")]
+    [Authorize]
     public class DepartmentGroupController : ControllerBase
     {
         private readonly DepartmentContext _context;
-        private readonly IOptionsSnapshot<Settings> _settings;
+        private readonly IOptionsSnapshot<DepartmentSettings> _settings;
         private readonly IDepartmentIntegrationEventService _departmentIntegrationEventService;
 
-        public DepartmentGroupController(DepartmentContext context, IOptionsSnapshot<Settings> settings, IDepartmentIntegrationEventService departmentIntegrationEventService)
+        public DepartmentGroupController(DepartmentContext context, IOptionsSnapshot<DepartmentSettings> settings, IDepartmentIntegrationEventService departmentIntegrationEventService)
         {
             _context = context;
             _departmentIntegrationEventService = departmentIntegrationEventService;

@@ -35,6 +35,8 @@ namespace LodgerPms.Departments.Api.Infrastructure.Filters
                     Messages = new[] { context.Exception.Message }
                 };
 
+                // Result asigned to a result object but in destiny the response is empty. This is a known bug of .net core 1.1
+                //It will be fixed in .net core 1.1.2. See https://github.com/aspnet/Mvc/issues/5594 for more information
                 context.Result = new BadRequestObjectResult(json);
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             }
@@ -42,14 +44,16 @@ namespace LodgerPms.Departments.Api.Infrastructure.Filters
             {
                 var json = new JsonErrorResponse
                 {
-                    Messages = new[] { "An error ocurr.Try it again." }
+                    Messages = new[] { "An error occur.Try it again." }
                 };
 
                 if (env.IsDevelopment())
                 {
-                    json.DeveloperMeesage = context.Exception;
+                    json.DeveloperMessage = context.Exception;
                 }
 
+                // Result asigned to a result object but in destiny the response is empty. This is a known bug of .net core 1.1
+                // It will be fixed in .net core 1.1.2. See https://github.com/aspnet/Mvc/issues/5594 for more information
                 context.Result = new InternalServerErrorObjectResult(json);
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             }
@@ -60,7 +64,7 @@ namespace LodgerPms.Departments.Api.Infrastructure.Filters
         {
             public string[] Messages { get; set; }
 
-            public object DeveloperMeesage { get; set; }
+            public object DeveloperMessage { get; set; }
         }
     }
 }

@@ -10,15 +10,7 @@ namespace LodgerPms.Departments.Api
     public class Program
     {
         public static void Main(string[] args)
-        {
-            //var host = new WebHostBuilder()
-            //    .UseKestrel()
-            //    .UseContentRoot(Directory.GetCurrentDirectory())
-            //    .UseStartup<Startup>()
-            //    .UseApplicationInsights()
-            //    .Build();
-
-
+        {           
             var host = new WebHostBuilder()
                .UseKestrel()
                .UseHealthChecks("/hc")

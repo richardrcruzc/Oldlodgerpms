@@ -134,7 +134,7 @@ namespace LodgerPms.WebMVC
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Department}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

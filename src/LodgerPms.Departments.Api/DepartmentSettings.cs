@@ -4,9 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace LodgerPms.Departments.Api
-{
-    // TODO: Rename DepartmentSettings for consistency?
-    public class Settings
+{   
+    public class DepartmentSettings
     {
         public string ExternalDepartmentBaseUrl { get; set; }
         public string EventBusConnection { get; set; }

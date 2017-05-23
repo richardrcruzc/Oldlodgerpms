@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{169FC118-1CF6-440E-8B69-2460BDF2F8FC}"
 EndProject
@@ -48,6 +48,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{EB82B7FD-78FA-4879-BD2D-386AFA704A44}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LodgerPms.Indentity.Api", "src\LodgerPms.Indentity.Api\LodgerPms.Indentity.Api.csproj", "{87B63161-5F54-45AD-ADE8-69398B7E17F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Properties", "Properties", "{09C0BCB3-D96E-418C-AF97-4131A9BC23D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LodgerPms.Property.Api", "src\LodgerPms.Property.Api.csproj\LodgerPms.Property.Api.csproj", "{12C633C6-8320-4ED5-A494-2FEFEABAB5F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +107,10 @@ Global
 		{87B63161-5F54-45AD-ADE8-69398B7E17F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87B63161-5F54-45AD-ADE8-69398B7E17F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87B63161-5F54-45AD-ADE8-69398B7E17F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C633C6-8320-4ED5-A494-2FEFEABAB5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12C633C6-8320-4ED5-A494-2FEFEABAB5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C633C6-8320-4ED5-A494-2FEFEABAB5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12C633C6-8320-4ED5-A494-2FEFEABAB5F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -128,5 +136,7 @@ Global
 		{522DC275-8EC9-4104-BD10-6DE5575DAF2C} = {6D3FC68D-7CF6-484C-B2A4-E6F74673AD98}
 		{EB82B7FD-78FA-4879-BD2D-386AFA704A44} = {D5433AF2-58AD-412F-8AC1-A86F9D4A46E0}
 		{87B63161-5F54-45AD-ADE8-69398B7E17F5} = {EB82B7FD-78FA-4879-BD2D-386AFA704A44}
+		{09C0BCB3-D96E-418C-AF97-4131A9BC23D8} = {D5433AF2-58AD-412F-8AC1-A86F9D4A46E0}
+		{12C633C6-8320-4ED5-A494-2FEFEABAB5F9} = {09C0BCB3-D96E-418C-AF97-4131A9BC23D8}
 	EndGlobalSection
 EndGlobal

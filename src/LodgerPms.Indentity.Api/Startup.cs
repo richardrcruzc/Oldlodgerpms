@@ -19,6 +19,7 @@ using Microsoft.LodgerPms.Services.Catalog.API.Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.HealthChecks;
 using Identity.API.Certificate;
+using System.Reflection;
 
 namespace LodgerPms.Indentity.Api
 {
@@ -34,7 +35,9 @@ namespace LodgerPms.Indentity.Api
             if (env.IsDevelopment())
             {
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
-                builder.AddUserSecrets();
+                // builder.AddUserSecrets();
+                //builder.AddUserSecrets<Startup>();
+                builder.AddUserSecrets(typeof(Startup).GetTypeInfo().Assembly);
             }
 
             builder.AddEnvironmentVariables();
